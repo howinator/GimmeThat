@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{ title }} template is working!</h1>
+<h1>{{ title }} </h1>
 
 {% for obj in object_list %}
-
+<div class='col-sm-6'>
 <a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a>
-{{ obj.content }}<br/>
+{{ obj.content|linebreaks|truncatechars:120 }}<br/>
 {{ obj.updated }}<br/>
-
+</div>
 {% endfor %}
 
 {% endblock content %}
