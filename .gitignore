@@ -2,6 +2,9 @@ settings.py
 *.sublime-workspace
 *.sublime-project
 *.sqlite3
+/media_CDN/*
+*.jpg
+*.png
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
