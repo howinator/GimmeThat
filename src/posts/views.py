@@ -9,7 +9,7 @@ from .models import Post
 
 
 def post_create(request):
-    form = PostForm(request.POST or None)
+    form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
@@ -37,8 +37,8 @@ def post_list(request):
 
     queryset_list = Post.objects.all()
     paginator = Paginator(queryset_list, 5)  # Show 25 object_list per page
-
-    page = request.GET.get('page')
+    page_request_var = "emily"
+    page = request.GET.get(page_request_var)
     try:
         queryset = paginator.page(page)
     except PageNotAnInteger:
@@ -48,6 +48,7 @@ def post_list(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         queryset = paginator.page(paginator.num_pages)
     context = {
+        "page_request_var": page_request_var,
         "object_list": queryset,
         "title": "My Post List"
     }
@@ -56,7 +57,8 @@ def post_list(request):
 
 def post_update(request, id=None):
     instance = get_object_or_404(Post, id=id)
-    form = PostForm(request.POST or None, instance=instance)
+    form = PostForm(
+        request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
