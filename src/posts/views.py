@@ -1,7 +1,7 @@
 from urllib.parse import quote_plus
 
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -11,6 +11,8 @@ from .models import Post
 
 
 def post_create(request):
+    if not request.user.is_staff or not request.user.is_superuser:
+        return HttpResponse('Unauthorized', status=401)
     form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
@@ -60,6 +62,8 @@ def post_list(request):
 
 
 def post_update(request, slug=None):
+    if not request.user.is_staff or not request.user.is_superuser:
+        return HttpResponse('Unauthorized', status=401)
     instance = get_object_or_404(Post, slug=slug)
     form = PostForm(
         request.POST or None, request.FILES or None, instance=instance)
@@ -78,6 +82,8 @@ def post_update(request, slug=None):
 
 
 def post_delete(request, id=None):
+    if not request.user.is_staff or not request.user.is_superuser:
+        return HttpResponse('Unauthorized', status=401)
     instance = get_object_or_404(Post, id=id)
     instance.delete()
     messages.success(request, "Succesfully deleted")
