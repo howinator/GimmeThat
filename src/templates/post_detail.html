@@ -14,11 +14,13 @@
 <h1>{{ instance.title }} <small>{{ instance.last_modified }}</small></h1>
 {% if instance.user.get_full_name %}
 <p> Author: {{ instance.user.get_full_name }}</p>
+<div class="fb-like" data-href="{{ requst.build_absolute_uri }}" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 {% endif %}
 
 
 {{ instance.content|linebreaks }}<br/>
 
+<div class="fb-comments" data-href="{{ requst.build_absolute_uri }}" data-numposts="5"></div>
 
 <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
 Facebook
