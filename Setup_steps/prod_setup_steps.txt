@@ -1,0 +1,4 @@
+1) Set environment variables for secret key in virtualenv
+	http://stackoverflow.com/questions/9554087/setting-an-environment-variable-in-virtualenv
+	Need to set SECRET_KEY, DB_PASSWORD, DB_USER
+
