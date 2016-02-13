@@ -15,3 +15,5 @@ DATABASES = {
         "PORT": ""
     }
 }
+
+ALLOWED_HOSTS = [".gimmeth.at"]
