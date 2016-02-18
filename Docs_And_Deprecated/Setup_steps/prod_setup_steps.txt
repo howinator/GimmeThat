@@ -2,3 +2,15 @@
 	http://stackoverflow.com/questions/9554087/setting-an-environment-variable-in-virtualenv
 	Need to set SECRET_KEY, DB_PASSWORD, DB_USER
 
+2) Set up user/group/directory according to this guide (http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/)
+    Group: webapps
+    User: gimmethat
+    Directory: /var/www/gimmeth.at
+
+3) Put the virtualenv inside ~/Envs where ~ is the project directory (home directory of the project user) [~=/var/www/gimmeth.at]
+
+4) Follow the rest of the steps in that blog post (saved in Documents)a
+
+5) On actual production directory, set the environment variables in supervisor (haven't figured this one out) according to this: http://stackoverflow.com/questions/17055951/how-to-set-environment-variables-in-supervisor-service
+
+Note: I made a copy of the nginx config file in /etc/nginx
