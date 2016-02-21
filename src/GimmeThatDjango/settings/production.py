@@ -17,3 +17,12 @@ DATABASES = {
 }
 
 ALLOWED_HOSTS = [".gimmeth.at"]
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_CDN")
+
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_CDN")
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    #    '/var/www/static/',
+]
