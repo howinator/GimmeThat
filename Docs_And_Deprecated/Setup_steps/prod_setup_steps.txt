@@ -1,16 +1,19 @@
-1) Set environment variables for secret key in virtualenv
-	http://stackoverflow.com/questions/9554087/setting-an-environment-variable-in-virtualenv
-	Need to set SECRET_KEY, DB_PASSWORD, DB_USER
 
-2) Set up user/group/directory according to this guide (http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/)
-    Group: webapps
-    User: gimmethat
+1) Set up user/group/directory according to this guide (http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/)
     Directory: /var/www/gimmeth.at
 
-3) Put the virtualenv inside ~/Envs where ~ is the project directory (home directory of the project user) [~=/var/www/gimmeth.at]
+2) Put the virtualenv inside ~/Envs where ~ is the project directory (home directory of the project user) [~=/var/www/gimmeth.at]
+If you use virtualenvwrapper, you have to use virtualenvwrapper in the gunciron script (I don't know why)
+    This also means you have to source virtualenvwrapper (usr/local/bin/virtualenvwrapper)
 
-4) Follow the rest of the steps in that blog post (saved in Documents)a
+3) Follow the rest of the steps in that blog post (saved in Documents)a
 
-5) On actual production directory, set the environment variables in supervisor (haven't figured this one out) according to this: http://stackoverflow.com/questions/17055951/how-to-set-environment-variables-in-supervisor-service
+4) For the environment variables, you'll do two things: 
+    i) make a script called secrets.sh which will contain "export SECRET_KEY='xyz' export DB_PASSWORD='xyz' etc"
+        Notice the single quotes!
+        Three environment vairbales are SECRET_KEY, DB_PASSWORD, and DB_USEr
+    ii) source the secrets.sh in your gunicorn script
+
+
 
 Note: I made a copy of the nginx config file in /etc/nginx
