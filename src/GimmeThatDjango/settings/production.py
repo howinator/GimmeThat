@@ -16,7 +16,7 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = [".gimmeth.at"]
+ALLOWED_HOSTS = [".gimmeth.at", "127.0.0.1"]
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_CDN")
 
@@ -26,3 +26,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     #    '/var/www/static/',
 ]
+
