@@ -7,6 +7,13 @@
 settings_copy.py
 json_settings.json
 src/.ropeproject/*
+.bashrc
+Envs/*
+.bash_history
+.virtualenvs/*
+.viminfo
+secrets.sh
+.profile
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

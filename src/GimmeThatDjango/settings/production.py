@@ -16,4 +16,4 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = [".gimmeth.at"]
+ALLOWED_HOSTS = [".gimmeth.at", "127.0.0.1"]
