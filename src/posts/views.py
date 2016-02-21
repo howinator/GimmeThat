@@ -82,10 +82,10 @@ def post_update(request, slug=None):
     return render(request, "post_form.html", context)
 
 
-def post_delete(request, id=None):
+def post_delete(request, slug=None):
     if not request.user.is_staff or not request.user.is_superuser:
         return HttpResponse('Unauthorized', status=401)
-    instance = get_object_or_404(Post, id=id)
+    instance = get_object_or_404(Post, slug=slug)
     instance.delete()
     messages.success(request, "Succesfully deleted")
     return redirect("posts:list")
