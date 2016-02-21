@@ -2,6 +2,7 @@
 *.sublime-project
 *.sqlite3
 /media_CDN/*
+/static_CDN/*
 *.jpg
 *.png
 settings_copy.py

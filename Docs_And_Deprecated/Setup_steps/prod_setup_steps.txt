@@ -1,3 +1,6 @@
+1) Set environment variables for secret key in virtualenv
+    http://stackoverflow.com/questions/9554087/setting-an-environment-variable-in-virtualenv
+    Need to set SECRET_KEY, DB_USER, DB_PASSWORD, and DJANGO_SETTINGS_MODULE (pg. 44 of Two Scoops)
 
 1) Set up user/group/directory according to this guide (http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/)
     Directory: /var/www/gimmeth.at
