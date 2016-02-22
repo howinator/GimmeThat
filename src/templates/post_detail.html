@@ -5,6 +5,11 @@
 {{ instance.title }} | {{ block.super }}
 {% endblock head_title %}
 
+{% block og_properties %}
+<meta property="og:url"    content="{{ request.build_absolute_uri }}"/>
+<meta property="og:image"  content="{{ instance.image.url }}">
+{% endblock og_properties %}
+
 
 {% block content %}
 <div class='col-sm-8 col-sm-offset-2'>
