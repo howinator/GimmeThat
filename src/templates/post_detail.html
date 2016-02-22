@@ -24,14 +24,17 @@
 
 {{ instance.content|linebreaks }}<br/>
 
+
+{# Render the buttons - This should maybe be in a block or something #}
 {# <div class="fb-comments" data-href="{{ requst.build_absolute_uri }}" data-numposts="5"></div> #}
+{# Render facebook button #}
 <div class="fb-like" data-href="{{ request.build_absolute_uri" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
 
-<a href="https://twitter.com/home?status={{ instance.content|truncatechars:80|urlify }}%20{{ request.build_absolute_uri }}">
-Twitter
-</a>
+{# Render twitter button #}
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ request.build_absolute_uri }}">Tweet</a>
 
-<a href='https://plus.google.com/share?url={{ requst.build_absolute_uri }}'>Google+</a>
+{# Render Google+ button. Place this tag where you want the +1 button to render. #}
+<div class="g-plusone" data-size="medium" data-annotation="none"></div>
 
 <a data-pin-do="buttonBookmark" href="//www.pinterest.com/pin/create/button/"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
 
