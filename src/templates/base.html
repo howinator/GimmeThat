@@ -13,13 +13,29 @@
     <style>
         {% block style %}{% endblock style%}
     </style>
+
+    {# Properties for facebook open graph stuff #}
     <meta property="og:type"             content="website"/>
     <meta property="og:title"            content="GimmeThat"/>
     <meta property="og:description"     content="Emily's GimmeThat Blog"/>
     {% block og_properties %}{% endblock og_properties %}
+
+    {#  Google+ button script. Place this tag in your head or just before your close body tag. Script for +1 button #}
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    {# Twiiter button script #}
+   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> 
 </head>
 
 <body>
+
+{% include "messages_display.html" %}
+
+<div class='container'>
+{% block content %}
+
+{% endblock content%}
+
+{# facebook like button script #}
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -28,17 +44,11 @@
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-{% include "messages_display.html" %}
-
-<div class='container'>
-{% block content %}
-
-{% endblock content%}
-
 </div>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+{# pintrest script #}
 <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
 </body>
 
