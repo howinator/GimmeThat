@@ -19,6 +19,9 @@ If you use virtualenvwrapper, you have to use virtualenvwrapper in the gunciron 
 
 5) Create symlink from supervisord.conf file to /etc/supervisord.conf. Basically, I'm version controlling supervisor conf script so I need to symlink it into /etc/
 
+6) Create symlink for ngnix (ln -s /var/www/gimmeth.at/bin/gimmethat-nginx.conf /etc/nginx/sites-available/gimmethat-nginx.conf)
+    Create symlink from sites-available to sites-enabled
+
 
 
 Note: I made a copy of the nginx config file in /etc/nginx

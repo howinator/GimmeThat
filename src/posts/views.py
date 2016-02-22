@@ -57,7 +57,7 @@ def post_list(request):
     context = {
         "page_request_var": page_request_var,
         "object_list": queryset,
-        "title": "My Post List"
+        "title": "Emily's GimmeThat Blog"
     }
     return render(request, "post_list.html", context)
 
