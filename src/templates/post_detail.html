@@ -17,8 +17,8 @@
 {% if user.is_authenticated %}
 <!-- Single button -->
 <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria- haspopup="true" aria-expanded="false">
-    Action <span class="caret"></span>
+    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria- haspopup="true" aria-expanded="false">
+    Delete/Edit Post <span class="caret"></span>
     </button>
 <ul class="dropdown-menu">
     <li><a href="{% url 'posts:delete' slug=instance.slug %}">Delete Post</a></li>
