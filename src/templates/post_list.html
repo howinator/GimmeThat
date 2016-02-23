@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 
+{% block og_properties %}
+    <meta property="og:url"     content="https://gimmeth.at/posts" />
+    <meta property="og:image"   content="" />
+{% endblock og_properties %}
+
 {% block content %}
 
+{# I'm not sure this is correct. Shouldn't this be in a row? #}
 <div class='col-sm-8 col-sm-offset-2'>
     <h1>{{ title }} </h1>
 

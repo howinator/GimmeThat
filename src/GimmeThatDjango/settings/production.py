@@ -2,6 +2,11 @@ from GimmeThatDjango.settings.base import *
 
 DEBUG = False
 
+# Ensure HTTPS security
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURe = True
+CSRF_COOKIE_SECURE = True
+
 DB_PASSWORD = get_env_variable("DB_PASSWORD")
 DB_USER = get_env_variable("DB_USER")
 
