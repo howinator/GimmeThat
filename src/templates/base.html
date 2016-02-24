@@ -1,13 +1,21 @@
 {% load staticfiles %}
-<!--DOCTYPE html -->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Howie Benefiel">
+    <meta name="keywords" content="Receipes, Food, Adventure, Travel, Dogs, Climbing">
+    <meta name="description" content="Emily's blog for all things you want">
+    
     <title>{% block head_title %}Gimme That{% endblock head_title %}</title>
+
     <link rel="shortcut icon" type="image/ico" href='{% static "img/favicon.ico" %}' />
 
     {% include "bootstrap_css.html" %}
-
     <link rel='stylesheet' type='text/css' href='{% static "css/base.css" %}' />
     <style>
         {% block style %}{% endblock style%}
@@ -16,9 +24,8 @@
     {# Properties for facebook open graph stuff #}
     <meta property="og:type"             content="website"/>
     <meta property="og:title"            content="GimmeThat"/>
-    <meta property="og:description"     content="Emily's GimmeThat Blog"/>
+    <meta property="og:description"      content="Emily's GimmeThat Blog"/>
     {% block og_properties %}{% endblock og_properties %}
-
 
 </head>
 
