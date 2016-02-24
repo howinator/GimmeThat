@@ -1,15 +1,11 @@
 {% extends "base.html" %}
 {% load urlify %}
 
-{% block head_title %}
-{{ instance.title }} | {{ block.super }}
-{% endblock head_title %}
+{% block head_title %}{{ instance.title }} | {{ block.super }}{% endblock head_title %}
 
 {% block og_properties %}
-<meta property="og:url"    content="{{ request.build_absolute_uri }}"/>
-{% if instance.image %}
-<meta property="og:image"  content="{{ instance.image.url }}">
-{% endif %}
+    <meta property="og:url"              content="{{ request.build_absolute_uri }}"/>
+{% if instance.image %}    <meta property="og:image"            content="{{ instance.image.url }}">{% endif %}
 {% endblock og_properties %}
 
 
@@ -17,8 +13,8 @@
 {% if user.is_authenticated %}
 <!-- Single button -->
 <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria- haspopup="true" aria-expanded="false">
-    Action <span class="caret"></span>
+    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria- haspopup="true" aria-expanded="false">
+    Delete/Edit Post <span class="caret"></span>
     </button>
 <ul class="dropdown-menu">
     <li><a href="{% url 'posts:delete' slug=instance.slug %}">Delete Post</a></li>
