@@ -2,14 +2,21 @@
 
 {% block og_properties %}
     <meta property="og:url"              content="https://gimmeth.at/posts" />
+    {# Fix the image property. I believe I have to get the absolute uri to the image #}
     <meta property="og:image"            content="" />
 {% endblock og_properties %}
 
 {% block content %}
 
 {# I'm not sure this is correct. Shouldn't this be in a row? #}
-<div class='col-sm-8 col-sm-offset-2'>
-    <h1>{{ title }} </h1>
+{# <div class='col-sm-8 col-sm-offset-2'> #}
+    {# <h1>{{ title }} </h1> #}
+
+<div class="row banner">
+    {# <div class="col-xs-12 banner"> #}
+    {# </div> #}
+</div>
+
 
 {% for obj in object_list %}
 <div class="row">
@@ -46,6 +53,6 @@
         {% endif %}
     </span>
 </div>
-</div>
+{# </div> #} <!--col-sm-8 col-sm-offset-2 -->
 
 {% endblock content %}

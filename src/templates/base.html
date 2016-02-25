@@ -3,19 +3,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="author" content="Howie Benefiel">
-    <meta name="keywords" content="Recipes, Food, Adventure, Travel, Dogs, Climbing, Bouldering, Healthy">
-    <meta name="description" content="Emily's blog for all things you want">
+{% include "meta_nonog_tags.html" %}
     
     <title>{% block head_title %}Gimme That{% endblock head_title %}</title>
 
     <link rel="shortcut icon" type="image/ico" href='{% static "img/favicon.ico" %}' />
 
     {% include "bootstrap_css.html" %}
+
     <link rel='stylesheet' type='text/css' href='{% static "css/base.css" %}' />
     <style>
         {% block style %}{% endblock style%}
@@ -33,7 +29,8 @@
 
     {% include "messages_display.html" %}
 
-    <div class='container'>
+    {# Maybe move this container to individual templates if container-fluid breaks everything #}
+    <div class='container-fluid'>
         {% block content %}
 
         {% endblock content%}
