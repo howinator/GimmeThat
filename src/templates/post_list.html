@@ -11,13 +11,19 @@
 {# I'm not sure this is correct. Shouldn't this be in a row? #}
 {# <div class='col-sm-8 col-sm-offset-2'> #}
     {# <h1>{{ title }} </h1> #}
-
-<div class="row banner">
-    <div class="col-xs-12">
-        <font face="hellenascript" size="10 "color=#FFFFFF>Gimme That</font>
+<header>
+    <div class="cover">
+        <div class="row">
+            <div class="row nested-row-fix title-row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-10">
+                        <h1>Gimme That</h1>
+                </div>
+                <div class="col-xs-1"></div>
+            </div>
+        </div>
     </div>
-</div>
-
+</header>
 
 {% for obj in object_list %}
 <div class="row">

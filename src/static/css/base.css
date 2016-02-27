@@ -16,14 +16,21 @@
     padding-right: 0px;
 }
 */
-.banner {
+header {
+    color: #FFFFFF;
+}
+header h1{
+    font-family: "hellenascript";
+    font-size: 20vw;
+}
+.cover>.row {
     background-image: url("/static/img/bannernotext.png");
 
     background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 560px;
+    height: 640px;
     /*This works for banner with text*/
     /*height: 90%;dddd*/
     /*background-size: 100% 58.33%;*/
@@ -31,6 +38,16 @@
     /*background-attachment: fixed;*/
     /*background-repeat: no-repeat;*/
 
+}
+/* Since bootstrap add -15px margin to rows, I need to overwrite
+   that functionality when a row is inside a row
+*/
+.title-row{
+    margin-top: 45px;
+}
+.nested-row-fix {
+    margin-right: 0px;
+    margin-left: 0px;
 }
 
 html, body {
