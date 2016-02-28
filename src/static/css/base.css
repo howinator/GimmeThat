@@ -2,24 +2,21 @@
     font-family: hellenascript;
     src: url("/static/fonts/hellenascript.ttf");
 }
-.container-fluid {
+@font-face {
+    font-family: basictitlefont;
+    src: url("/static/fonts/basictitlefont.ttf");
+}
+html, body {
     height: 100%;
 }
-/*
-.row {
-    margin-left: -15px;
-    margin-right: -15px;
-}
 
-.col-sm-12 {
-    padding-left: 0px;
-    padding-right: 0px;
-}
-*/
 header {
     color: #FFFFFF;
 }
-header h1{
+header * {
+    text-align: center;
+}
+#header-text{
     font-family: "hellenascript";
     font-size: 20vw;
 }
@@ -42,14 +39,27 @@ header h1{
 /* Since bootstrap add -15px margin to rows, I need to overwrite
    that functionality when a row is inside a row
 */
-.title-row{
-    margin-top: 45px;
-}
 .nested-row-fix {
     margin-right: 0px;
     margin-left: 0px;
 }
-
-html, body {
-    height: 100%;
+.header-spacer {
+    height: 15%;
 }
+
+/* Doing the underline with a div below the text 
+This should possible be used on the row instead*/
+.cover-line {
+    margin-top: -4%;
+    border-top: 2px white solid;
+    height: 10px;
+}
+#cover-subtext {
+    font-family: "basictitlefont";
+    font-size: 5vw;
+    margin-top: -10px;
+}
+/*.subtext-row {
+    margin-top: -10px;
+}
+*/
