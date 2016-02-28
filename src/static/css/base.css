@@ -9,9 +9,12 @@
 html, body {
     height: 100%;
 }
-
+.container-fluid {
+    height: 100%;
+}
 header {
     color: #FFFFFF;
+    height: 100%;
 }
 header * {
     text-align: center;
@@ -20,14 +23,18 @@ header * {
     font-family: "hellenascript";
     font-size: 20vw;
 }
+.cover{
+    height: 100%;
+}
 .cover>.row {
-    background-image: url("/static/img/bannernotext.png");
+    background-image: url("/static/img/header-narrow.png");
 
     background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 640px;
+    height: 80%;
+    /*height: 600px;*/
     /*This works for banner with text*/
     /*height: 90%;dddd*/
     /*background-size: 100% 58.33%;*/
@@ -36,6 +43,7 @@ header * {
     /*background-repeat: no-repeat;*/
 
 }
+
 /* Since bootstrap add -15px margin to rows, I need to overwrite
    that functionality when a row is inside a row
 */
@@ -43,23 +51,21 @@ header * {
     margin-right: 0px;
     margin-left: 0px;
 }
+
 .header-spacer {
-    height: 15%;
+    height: 20%;
 }
 
 /* Doing the underline with a div below the text 
 This should possible be used on the row instead*/
-.cover-line {
+.header-line {
     margin-top: -4%;
     border-top: 2px white solid;
     height: 10px;
 }
+
 #cover-subtext {
     font-family: "basictitlefont";
     font-size: 3.5vw;
     margin-top: -15px;
 }
-/*.subtext-row {
-    margin-top: -10px;
-}
-*/
