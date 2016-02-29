@@ -15,13 +15,13 @@ header * {
 }
 #header-text{
     font-family: "hellenascript";
-    font-size: 20vw;
+    font-size: 18vw;
 }
 .cover{
     height: 100%;
 }
 .cover>.row {
-    background-image: url("/static/img/header-narrower.png");
+    background-image: url("/static/img/H400px---Narrow-Gimme-That-Header-Background.png");
 
     background-position: bottom;
     background-size: cover;
@@ -47,6 +47,6 @@ This should possible be used on the row instead*/
 
 #cover-subtext {
     font-family: "basictitlefont";
-    font-size: 3.5vw;
-    margin-top: -15px;
+    font-size: 3.3vw;
+    margin-top: -4%;
 }
