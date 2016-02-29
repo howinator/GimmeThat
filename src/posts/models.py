@@ -12,6 +12,13 @@ def upload_location(instance, filename):
     return "%s/%s" % (instance.id, filename)
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=400)
+    date_modified = models.DateTimeField(auto_now=True, auto_now_add=False)
+    date_added = models.DateTimeField(auto_now=False, auto_now_add=True)
+
+
 class Post(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
     title = models.CharField(max_length=250)
@@ -23,6 +30,7 @@ class Post(models.Model):
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
     content = models.TextField()
+    categories = models.ManyToManyField(Category)
     last_modified = models.DateTimeField(auto_now=True, auto_now_add=False)
     date_added = models.DateTimeField(auto_now=False, auto_now_add=True)
 
@@ -34,6 +42,7 @@ class Post(models.Model):
 
     class Meta:
         ordering = ["-date_added"]
+
 
 
 def create_slug(instance, new_slug=None):
