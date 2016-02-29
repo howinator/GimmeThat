@@ -1,85 +1,93 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+
+{% block style %}
+    <link rel='stylesheet' type='text/css' href='{% static "css/post_list.css" %}' />
+{% endblock style %}
 
 {% block og_properties %}
     <meta property="og:url"              content="https://gimmeth.at/posts" />
     {# Fix the image property. I believe I have to get the absolute uri to the image #}
-    <meta property="og:image"            content="" />
+    <meta property="og:image"            content='' />
 {% endblock og_properties %}
 
+
 {% block content %}
-
-{# I'm not sure this is correct. Shouldn't this be in a row? #}
-{# <div class='col-sm-8 col-sm-offset-2'> #}
-    {# <h1>{{ title }} </h1> #}
-
 <header>
-    <div class="cover">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="cover">
+            <div class="row">
 
-            <div class="header-spacer"></div>
+                {# instead of doing this, look at doing vertical-align as table #}
+                <div class="header-spacer"></div> <!-- Need spacer at beginning and end -->
 
-            <div class="row nested-row-fix title-row">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-10">
-                    <h1 id="header-text">Gimme That</h1>
-                </div>
-                <div class="col-xs-1"></div>
+                <div class="row nested-row-fix title-row">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-10">
+                        <h1 id="header-text">Gimme That</h1>
+                    </div>
+                    <div class="col-xs-1"></div>
+                </div> <!-- title-row -->
+
+                 <div class="row nested-row-fix header-middle-row">
+                    <div class="col-xs-3"></div>
+                    <div class="col-xs-6 header-line"> </div>
+                    <div class="col-xs-3"></div>
+                </div> <!-- header-middle-row -->
+
+                <div class="row nested-row-fix subtext-row">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-8">
+                        <h2 id="cover-subtext">TASTY BITES - ADVENTURES - GRAPHICS</h2>
+                    </div>
+                    <div class="col-xs-2"></div>
+                </div> <!-- subtext-row -->
+
+                <div class="header-space"></div> <!-- Need spacer at beginning and end -->
+
             </div>
-
-             <div class="row nested-row-fix header-middle-row">
-                <div class="col-xs-3"></div>
-                <div class="col-xs-6 header-line"> </div>
-                <div class="col-xs-3"></div>
-            </div>
-
-            <div class="row nested-row-fix subtext-row">
-                <div class="col-xs-2"></div>
-                <div class="col-xs-8">
-                    <h2 id="cover-subtext">TASTY BITES - ADVENTURES - GRAPHICS</h2>
-                </div>
-                <div class="col-xs-2"></div>
-            </div>
-
-            <div class="header-space"></div>
-
         </div>
     </div>
 </header>
 
-{% for obj in object_list %}
-<div class="row">
-    <div class="col-sm-12">
-        <div class="thumbnail">
-            {% if obj.image %}
-            <img src="{{ obj.image.url }}" class="img-responsive"/> 
-            {% endif %}
-            <div class="caption">
-                <h3><a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a>         <small>{{ obj.date_added | timesince}} ago</small></h3>
-                {% if obj.user.get_full_name %}<p>{{ obj.user.get_full_name}}</p>{% endif %}
-                <p>{{ obj.content|linebreaks|truncatechars:120 }}</p>
-                <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p>
+{% include "navbar.html" with active="post-list" %}
+
+<div class="container">
+    {% for obj in object_list %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="thumbnail">
+                {% if obj.image %}
+                <img src="{{ obj.image.url }}" class="img-responsive"/> 
+                {% endif %}
+                <div class="caption">
+                    <h3><a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a>         <small>{{ obj.date_added | timesince}} ago</small></h3>
+                    {% if obj.user.get_full_name %}<p>{{ obj.user.get_full_name}}</p>{% endif %}
+                    <p>{{ obj.content|linebreaks|truncatechars:120 }}</p>
+                    <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p>
+                </div>
             </div>
         </div>
+        <hr/>
     </div>
-    <hr/>
-</div>
 
-{% endfor %}
+    {% endfor %}
 
-<div class="pagination">
-    <span class="step-links">
-        {% if object_list.has_previous %}
-            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}">previous</a>
-        {% endif %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if object_list.has_previous %}
+                <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}">previous</a>
+            {% endif %}
 
-        <span class="current">
-            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+            <span class="current">
+                Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+            </span>
+
+            {% if object_list.has_next %}
+                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}">next</a>
+            {% endif %}
         </span>
-
-        {% if object_list.has_next %}
-            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}">next</a>
-        {% endif %}
-    </span>
-{# </div> #} <!--col-sm-8 col-sm-offset-2 -->
+    {# </div> #} <!--col-sm-8 col-sm-offset-2 -->
+    </div>
 </div>
 {% endblock content %}
