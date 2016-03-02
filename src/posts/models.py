@@ -15,8 +15,15 @@ def upload_location(instance, filename):
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=400)
+    image = models.ImageField(null=True, blank=True,
+                              upload_to=upload_location,
+                              width_field="width_field",
+                              height_field="height_field")
     date_modified = models.DateTimeField(auto_now=True, auto_now_add=False)
     date_added = models.DateTimeField(auto_now=False, auto_now_add=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Post(models.Model):
@@ -42,7 +49,6 @@ class Post(models.Model):
 
     class Meta:
         ordering = ["-date_added"]
-
 
 
 def create_slug(instance, new_slug=None):

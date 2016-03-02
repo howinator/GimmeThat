@@ -21,7 +21,7 @@ header * {
     height: 100%;
 }
 .cover>.row {
-    background-image: url("/static/img/H400PX---MORE-TRAIL---Narrow-Gimme-That-Header-Background.png");
+    background-image: url("/static/img/header-master.png");
 
     background-position: bottom;
     background-size: cover;

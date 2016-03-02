@@ -89,3 +89,7 @@ def post_delete(request, slug=None):
     instance.delete()
     messages.success(request, "Succesfully deleted")
     return redirect("posts:list")
+
+
+def post_category(request, category=None):
+    return render("Under construction")
