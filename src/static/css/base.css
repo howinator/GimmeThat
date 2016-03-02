@@ -1,40 +1,8 @@
-@font-face {
-    font-family: hellenascript;
-    src: url("/static/fonts/hellenascript.ttf");
-}
-@font-face {
-    font-family: basictitlefont;
-    src: url("/static/fonts/basictitlefont.ttf");
-}
 html, body {
     height: 100%;
 }
-
-header {
-    color: #FFFFFF;
-}
-header * {
-    text-align: center;
-}
-#header-text{
-    font-family: "hellenascript";
-    font-size: 20vw;
-}
-.cover>.row {
-    background-image: url("/static/img/bannernotext.png");
-
-    background-position: bottom;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 640px;
-    /*This works for banner with text*/
-    /*height: 90%;dddd*/
-    /*background-size: 100% 58.33%;*/
-    /*background-position: top;*/
-    /*background-attachment: fixed;*/
-    /*background-repeat: no-repeat;*/
-
+.container-fluid {
+    height: 100%;
 }
 /* Since bootstrap add -15px margin to rows, I need to overwrite
    that functionality when a row is inside a row
@@ -43,23 +11,3 @@ header * {
     margin-right: 0px;
     margin-left: 0px;
 }
-.header-spacer {
-    height: 15%;
-}
-
-/* Doing the underline with a div below the text 
-This should possible be used on the row instead*/
-.cover-line {
-    margin-top: -4%;
-    border-top: 2px white solid;
-    height: 10px;
-}
-#cover-subtext {
-    font-family: "basictitlefont";
-    font-size: 3.5vw;
-    margin-top: -15px;
-}
-/*.subtext-row {
-    margin-top: -10px;
-}
-*/

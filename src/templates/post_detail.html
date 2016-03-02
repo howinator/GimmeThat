@@ -10,47 +10,49 @@
 
 
 {% block content %}
-{% if user.is_authenticated %}
-<!-- Single button -->
-<div class="btn-group">
-    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria- haspopup="true" aria-expanded="false">
-    Delete/Edit Post <span class="caret"></span>
-    </button>
-<ul class="dropdown-menu">
-    <li><a href="{% url 'posts:delete' slug=instance.slug %}">Delete Post</a></li>
-    <li><a href="{% url 'posts:update' slug=instance.slug %}">Edit Post</a></li>
-    {# <li><a href="#">Something else here</a></li> #}
-    {# <li role="separator" class="divider"></li> #}
-    {# <li><a href="#">Separated link</a></li> #}
-</ul>
-</div>
-{% endif %}
-<div class='col-sm-8 col-sm-offset-2'>
-    {% if instance.image %}
-    <img src="{{ instance.image.url }}" class="img-responsive"/>
+<div class="container">
+    {% if user.is_authenticated %}
+    <!-- Single button -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria- haspopup="true" aria-expanded="false">
+        Delete/Edit Post <span class="caret"></span>
+        </button>
+    <ul class="dropdown-menu">
+        <li><a href="{% url 'posts:delete' slug=instance.slug %}">Delete Post</a></li>
+        <li><a href="{% url 'posts:update' slug=instance.slug %}">Edit Post</a></li>
+        {# <li><a href="#">Something else here</a></li> #}
+        {# <li role="separator" class="divider"></li> #}
+        {# <li><a href="#">Separated link</a></li> #}
+    </ul>
+    </div>
     {% endif %}
-    <h1>{{ instance.title }} <small>{{ instance.last_modified }}</small></h1>
-    {% if instance.user.get_full_name %}
-    <p> Author: {{ instance.user.get_full_name }}</p>
-    {% endif %}
+    <div class='col-sm-8 col-sm-offset-2'>
+        {% if instance.image %}
+        <img src="{{ instance.image.url }}" class="img-responsive"/>
+        {% endif %}
+        <h1>{{ instance.title }} <small>{{ instance.last_modified }}</small></h1>
+        {% if instance.user.get_full_name %}
+        <p> Author: {{ instance.user.get_full_name }}</p>
+        {% endif %}
 
 
-    {{ instance.content|linebreaks }}<br/>
+        {{ instance.content|linebreaks }}<br/>
 
 
-    {# Render the buttons - This should maybe be in a block or something #}
-    {# <div class="fb-comments" data-href="{{ requst.build_absolute_uri }}" data-numposts="5"></div> #}
-    {# Render facebook button #}
-    <div class="fb-like" data-href="{{ request.build_absolute_uri" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
+        {# Render the buttons - This should maybe be in a block or something #}
+        {# <div class="fb-comments" data-href="{{ requst.build_absolute_uri }}" data-numposts="5"></div> #}
+        {# Render facebook button #}
+        <div class="fb-like" data-href="{{ request.build_absolute_uri" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
 
-    {# Render twitter button #}
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ request.build_absolute_uri }}">Tweet</a>
+        {# Render twitter button #}
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ request.build_absolute_uri }}">Tweet</a>
 
-    {# Render Google+ button. Place this tag where you want the +1 button to render. #}
-    <div class="g-plusone" data-size="medium" data-annotation="none"></div>
+        {# Render Google+ button. Place this tag where you want the +1 button to render. #}
+        <div class="g-plusone" data-size="medium" data-annotation="none"></div>
 
-    <a data-pin-do="buttonBookmark" href="//www.pinterest.com/pin/create/button/"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
+        <a data-pin-do="buttonBookmark" href="//www.pinterest.com/pin/create/button/"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
 
 
+    </div>
 </div>
 {% endblock content %}
