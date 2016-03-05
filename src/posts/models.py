@@ -13,7 +13,7 @@ def upload_location(instance, filename):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=100)
+    title = models.CharField(max_length=100)
     description = models.CharField(max_length=400)
     image = models.ImageField(null=True, blank=True,
                               upload_to=upload_location,
