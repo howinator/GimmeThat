@@ -13,7 +13,7 @@ def upload_location(instance, filename):
 
 
 class Category(models.Model):
-    title = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     description = models.CharField(max_length=400)
     image = models.ImageField(null=True, blank=True,
                               upload_to=upload_location,
@@ -51,20 +51,20 @@ class Post(models.Model):
         ordering = ["-date_added"]
 
 
-def create_slug(instance, new_slug=None):
-    slug = slugify(instance.title)
+def create_slug(descriptor, new_slug=None):
+    slug = slugify(descriptor)
     if new_slug is not None:
         slug = new_slug
     qs = Post.objects.filter(slug=slug).order_by("-id")
     exists = qs.exists()
     if exists:
         new_slug = "%s-%s" % (slug, qs.first().id)
-        return create_slug(instance, new_slug=new_slug)
+        return create_slug(descriptor, new_slug=new_slug)
     return slug
 
 
 def pre_save_post_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
-        instance.slug = create_slug(instance)
+        instance.slug = create_slug(instance.title or instance.name)
 
-pre_save.connect(pre_save_post_receiver, sender=Post)
+pre_save.connect(pre_save_post_receiver)
