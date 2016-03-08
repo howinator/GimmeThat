@@ -92,5 +92,5 @@ def post_delete(request, slug=None):
 
 
 def post_category(request, category=None):
-    queryset_list = Post.objects.get(category.slug = category)
+    # queryset_list = Post.objects.get(category.slug=category)
     return render("Under construction")

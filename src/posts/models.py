@@ -19,6 +19,7 @@ class Category(models.Model):
                               upload_to=upload_location,
                               width_field="width_field",
                               height_field="height_field")
+    slug = models.SlugField(unique=True)
     date_modified = models.DateTimeField(auto_now=True, auto_now_add=False)
     date_added = models.DateTimeField(auto_now=False, auto_now_add=True)
 
@@ -37,7 +38,7 @@ class Post(models.Model):
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
     content = models.TextField()
-    categories = models.ManyToManyField(Category)
+    category = models.ForeignKey(Category)
     last_modified = models.DateTimeField(auto_now=True, auto_now_add=False)
     date_added = models.DateTimeField(auto_now=False, auto_now_add=True)
 
@@ -67,4 +68,5 @@ def pre_save_post_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = create_slug(instance.title or instance.name)
 
-pre_save.connect(pre_save_post_receiver)
+pre_save.connect(pre_save_post_receiver, sender=Post)
+pre_save.connect(pre_save_post_receiver, sender=Category)
