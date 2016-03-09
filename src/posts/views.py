@@ -6,7 +6,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .forms import PostForm
-from .models import Post
+from .models import Post, Category
 # Create your views here.
 
 
@@ -92,5 +92,9 @@ def post_delete(request, slug=None):
 
 
 def post_category(request, category=None):
-    # queryset_list = Post.objects.get(category.slug=category)
-    return render("Under construction")
+    posts_category = Category.objects.get(slug=category)
+    queryset_list = Post.objects.filter(category=posts_category)
+    context = {
+        "object_list": queryset_list
+    }
+    return(request, "post_category_list.html", context)

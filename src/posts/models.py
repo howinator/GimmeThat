@@ -66,6 +66,6 @@ def create_slug(descriptor, new_slug=None):
 
 def pre_save_post_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
-        instance.slug = create_slug(instance.title or instance.name)
+        instance.slug = create_slug(instance.title)
 
 pre_save.connect(pre_save_post_receiver, sender=Post)
