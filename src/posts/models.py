@@ -69,4 +69,3 @@ def pre_save_post_receiver(sender, instance, *args, **kwargs):
         instance.slug = create_slug(instance.title or instance.name)
 
 pre_save.connect(pre_save_post_receiver, sender=Post)
-pre_save.connect(pre_save_post_receiver, sender=Category)
