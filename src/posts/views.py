@@ -97,4 +97,4 @@ def post_category(request, category=None):
     context = {
         "object_list": queryset_list
     }
-    return(request, "post_category_list.html", context)
+    return render(request, "post_category_list.html", context)
