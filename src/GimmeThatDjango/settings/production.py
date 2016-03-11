@@ -3,8 +3,8 @@ from GimmeThatDjango.settings.base import *
 DEBUG = False
 
 # Ensure HTTPS security
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURe = True
+#SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 DB_PASSWORD = get_env_variable("DB_PASSWORD")
