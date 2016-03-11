@@ -16,6 +16,11 @@ header {
 header * {
     text-align: center;
 }
+
+header .container-fluid {
+    height: 100%;
+}
+
 #header-text{
     font-family: "hellenascript";
     font-size: 18vw;
@@ -51,3 +56,8 @@ This should possible be used on the row instead*/
     font-size: 3.3vw;
     margin-top: -4%;
 }
+
+.about-me p {
+    font-family: Helvetica;
+}
+
