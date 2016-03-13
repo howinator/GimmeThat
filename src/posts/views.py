@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.conf import settings
 
 from .forms import PostForm
 from .models import Post, Category
@@ -92,6 +93,12 @@ def post_delete(request, slug=None):
 
 
 def post_category(request, category=None):
+
+    # little hack to show under construction when not debugging
+    # REMOVE when done
+    context = {}
+    if not settings.DEBUG:
+        return render(request, "construction.html", context)
     posts_category = Category.objects.get(slug=category)
     queryset_list = Post.objects.filter(category=posts_category)
     context = {
