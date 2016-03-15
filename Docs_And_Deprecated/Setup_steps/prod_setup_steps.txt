@@ -17,7 +17,7 @@ If you use virtualenvwrapper, you have to use virtualenvwrapper in the gunciron 
         Three environment vairbales are SECRET_KEY, DB_PASSWORD, and DB_USEr
     ii) source the secrets.sh in your gunicorn script
 
-5) Create symlink from supervisord.conf file to /etc/supervisord.conf. Basically, I'm version controlling supervisor conf script so I need to symlink it into /etc/
+5) Create symlink from supervisord.conf file to /etc/supervisor/supervisord.conf. Basically, I'm version controlling supervisor conf script so I need to symlink it into /etc/
 
 6) Create symlink for ngnix (ln -s /var/www/gimmeth.at/bin/gimmethat-nginx.conf /etc/nginx/sites-available/gimmethat-nginx.conf)
     Create symlink from sites-available to sites-enabled

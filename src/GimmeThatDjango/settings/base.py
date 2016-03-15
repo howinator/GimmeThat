@@ -126,3 +126,6 @@ EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+SERVER_EMAIL = get_env_variable('EMAIL_HOST_USER')
+
+ADMINS = [('Howie', 'hben592@gmail.com')]
