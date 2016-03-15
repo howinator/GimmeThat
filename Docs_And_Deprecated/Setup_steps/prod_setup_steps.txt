@@ -14,8 +14,7 @@ If you use virtualenvwrapper, you have to use virtualenvwrapper in the gunciron 
 4) For the environment variables, you'll do two things: 
     i) make a script called secrets.sh which will contain "export SECRET_KEY='xyz' export DB_PASSWORD='xyz' etc"
         Notice the single quotes!
-        Three environment vairbales are SECRET_KEY, DB_PASSWORD, and DB_USEr
-    ii) source the secrets.sh in your gunicorn script
+        Three environment vairbales are SECRET_KEY, DB_PASSWORD, DB_USER, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
 
 5) Create symlink from supervisord.conf file to /etc/supervisor/supervisord.conf. Basically, I'm version controlling supervisor conf script so I need to symlink it into /etc/
 

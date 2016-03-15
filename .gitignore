@@ -15,6 +15,7 @@ Envs/*
 .viminfo
 secrets.sh
 .profile
+postactivate
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
