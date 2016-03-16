@@ -32,3 +32,11 @@ STATICFILES_DIRS = [
     #    '/var/www/static/',
 ]
 
+'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/var/www/gimmeth.at/logs/mysite.log',
+            'formatter': 'verbose'
+        },
+    },
