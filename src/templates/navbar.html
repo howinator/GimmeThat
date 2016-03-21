@@ -12,15 +12,16 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="{% url 'posts:category' 'tasty-bites' %}">Tasty Bites</a></li>
-        <li><a href="{% url 'posts:category' 'adventures' %}">Adventures</a></li> 
-        <li><a href="{% url 'posts:category' 'graphics' %}">Graphics</a></li> 
+        <li {% if active == 'post-list' %}class="active"{% endif %}><a href="https://gimmeth.at/posts/">Home</a></li>
+        <li {% if active == 'tasty-bites' %}class="active"{% endif %}><a href="{% url 'posts:category' 'tasty-bites' %}">Tasty Bites</a></li>
+        <li {% if active == 'adventures' %}class="active"{% endif %}><a href="{% url 'posts:category' 'adventures' %}">Adventures</a></li> 
+        <li {% if active == 'graphics' %}class="active"{% endif %}><a href="{% url 'posts:category' 'graphics' %}">Graphics</a></li> 
       </ul>
-      {# <ul class="nav navbar-nav navbar-right"> #}
+      <ul class="nav navbar-nav navbar-right">
+        <li> Built with &#9829; by Howie &amp; Emily </li>
         {# <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> #}
         {# <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> #}
-      {# </ul> #}
+      </ul>
     </div>
   </div>
 </nav>
