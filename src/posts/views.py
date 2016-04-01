@@ -1,3 +1,5 @@
+import logging
+
 from urllib.parse import quote_plus
 
 from django.contrib import messages
@@ -10,6 +12,8 @@ from django.core.mail import send_mail
 from .forms import PostForm
 from .models import Post, Category
 # Create your views here.
+
+logger = logging.getLogger(__name__)
 
 
 def post_create(request):
@@ -61,8 +65,12 @@ def post_list(request):
         "object_list": queryset,
         "title": "Emily's GimmeThat Blog"
     }
-    send_mail('this is a test', 'someone visited post_list', 'howiethebot@gmail.com',
-        ['hben592@gmail.com'], fail_silently=False)
+    try:
+        send_mail('this is a test', 'someone visited post_list',
+                  'howiethebot@gmail.com', ['hben592@gmail.com'],
+                  fail_silently=False)
+    except SMTPException:
+        logger.exception('email failed')
     return render(request, "post_list.html", context)
 
 
