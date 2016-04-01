@@ -1,3 +1,13 @@
+@font-face {
+    font-family: hellenascript;
+    src: url("/static/fonts/hellenascript.ttf");
+}
+
+@font-face {
+    font-family: basictitlefont;
+    src: url("/static/fonts/basictitlefont.ttf");
+}
+
 html, body {
     height: 100%;
 }
@@ -15,4 +25,10 @@ html, body {
         margin-left: 1em;
         margin-right: 1em;
     }
+}
+
+.navbar {
+    border-bottom: 1px solid #39bba3;
+    border-radius: 0px;
+    /*border-bottom-color: #39bba3;*/
 }

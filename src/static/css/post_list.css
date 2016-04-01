@@ -1,13 +1,3 @@
-@font-face {
-    font-family: hellenascript;
-    src: url("/static/fonts/hellenascript.ttf");
-}
-
-@font-face {
-    font-family: basictitlefont;
-    src: url("/static/fonts/basictitlefont.ttf");
-}
-
 header {
     color: #FFFFFF;
     height: 90%;
