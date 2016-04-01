@@ -66,6 +66,7 @@ def post_list(request):
         "title": "Emily's GimmeThat Blog"
     }
     try:
+        print(settings.EMAIL_HOST_USER)
         send_mail('this is a test', 'someone visited post_list',
                   'howiethebot@gmail.com', ['hben592@gmail.com'],
                   fail_silently=False)
