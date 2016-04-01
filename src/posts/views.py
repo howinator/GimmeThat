@@ -102,6 +102,7 @@ def post_category(request, category=None):
     posts_category = Category.objects.get(slug=category)
     queryset_list = Post.objects.filter(category=posts_category)
     context = {
-        "object_list": queryset_list
+        "object_list": queryset_list,
+        "category": category
     }
     return render(request, "post_category_list.html", context)

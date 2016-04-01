@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
+
+
 {% block content %}
+{% include "navbar.html" with active=category %}
 {% for obj in object_list %}
     <p>{{ obj.title }}</p>
 {% endfor %}

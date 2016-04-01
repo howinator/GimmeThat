@@ -9,3 +9,10 @@ html, body {
     margin-right: 0px;
     margin-left: 0px;
 }
+
+@media (min-width: 768px){
+    .navbar li {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
