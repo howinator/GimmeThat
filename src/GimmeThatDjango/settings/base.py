@@ -161,7 +161,7 @@ LOGGING = {
             'propagate': True,
             'level': 'DEBUG',
         },
-        'GimmeThatDjango': {
+        'posts': {
             'handlers': ['file'],
             'level': 'DEBUG',
         },

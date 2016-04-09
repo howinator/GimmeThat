@@ -10,6 +10,7 @@ json_settings.json
 src/.ropeproject/*
 .bashrc
 Envs/*
+*.map
 .bash_history
 .virtualenvs/*
 .viminfo

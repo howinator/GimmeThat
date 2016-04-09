@@ -1,7 +1,7 @@
 from GimmeThatDjango.settings.base import *
 
-DEBUG = False
-ALLOWED_HOSTS = ['127.0.0.1']
+DEBUG = True
+#ALLOWED_HOSTS = ['127.0.0.1']
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
