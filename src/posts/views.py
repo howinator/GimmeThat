@@ -65,12 +65,10 @@ def post_list(request):
         "object_list": queryset,
         "title": "Emily's GimmeThat Blog"
     }
-    logger.info(settings.EMAIL_HOST_USER)
-    logger.info(settings.EMAIL_HOST_PASSWORD)
-    if not settings.DEBUG:
-        send_mail('this is a test', 'someone visited post_list',
-                  'howiethebot@gmail.com', ['hben592@gmail.com'],
-                  fail_silently=False)
+#    if not settings.DEBUG:
+#        send_mail('this is a test', 'someone visited post_list',
+#                  'howiethebot@gmail.com', ['hben592@gmail.com'],
+#                 fail_silently=False)
     return render(request, "post_list.html", context)
 
 
