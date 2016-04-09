@@ -1,0 +1,36 @@
+@import 'partials/color_scheme_vars';
+
+@font-face {
+    font-family: hellenascript;
+    src: url('/static/fonts/hellenascript.ttf');
+}
+
+@font-face {
+    font-family: basictitlefont;
+    src: url('/static/fonts/basictitlefont.ttf');
+}
+
+html, body {
+    height: 100%;
+}
+
+/* Since bootstrap add -15px margin to rows, I need to overwrite
+   that functionality when a row is inside a row
+*/
+.nested-row-fix {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+@media (min-width: 768px){
+    .navbar li {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
+
+.navbar {
+    border-bottom: 1px solid #39bba3;
+    border-radius: 0px;
+    /*border-bottom-color: #39bba3;*/
+}

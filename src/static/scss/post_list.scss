@@ -1,0 +1,76 @@
+@import 'partials/color_scheme_vars';
+
+header {
+    color: $pure-white;
+    height: 90%;
+
+    * {
+        text-align: center;
+    }
+
+    .container-fluid {
+        height: 100%;
+    }
+}
+
+#header-text {
+    font-family: 'hellenascript';
+    font-size: 18vw;
+}
+
+.cover {
+    height: 100%;
+
+    > .row {
+        background-attachment: fixed;
+        background-image: url('/static/img/header-master.png');
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+    }
+}
+
+.header-spacer {
+    height: 20%;
+}
+
+// Doing the underline with a div below the text
+// This should possible be used on the row instead
+.header-line {
+    border-radius: 2px;
+    border-top: 2px $pure-white solid;
+    height: 10px;
+    margin-top: -4%;
+
+}
+
+#cover-subtext {
+    font-family: 'basictitlefont';
+    font-size: 3.3vw;
+    margin-top: -4%;
+}
+
+.about-me {
+    * {
+        font-family: 'PT Sans', sans-serif;
+    }
+
+    h1 {
+        color: $dark-grey;
+        margin-top: 35px;
+        text-align: center;
+    }
+
+    p {
+        color: $light-grey;
+        display: block;
+        left: 20%;
+        line-height: 1.6em;
+        margin-top: 25px;
+        position: relative;
+        right: 20%;
+        width: 60%;
+    }
+}
+
