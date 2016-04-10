@@ -86,10 +86,11 @@ def post_update(request, slug=None):
         "instance": instance,
         "form": form,
     }
-    if not settings.DEBUG:
-        send_mail('this is a test', 'someone visited post_list',
-                  'howiethebot@gmail.com', ['hben592@gmail.com'],
-                 fail_silently=False)
+    # For testing mail stuff
+#    if not settings.DEBUG:
+#        send_mail('this is a test', 'someone visited post_list',
+#                  'howiethebot@gmail.com', ['hben592@gmail.com'],
+#                  fail_silently=False)
     return render(request, "post_form.html", context)
 
 
