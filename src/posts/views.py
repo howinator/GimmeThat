@@ -65,10 +65,7 @@ def post_list(request):
         "object_list": queryset,
         "title": "Emily's GimmeThat Blog"
     }
-#    if not settings.DEBUG:
-#        send_mail('this is a test', 'someone visited post_list',
-#                  'howiethebot@gmail.com', ['hben592@gmail.com'],
-#                 fail_silently=False)
+
     return render(request, "post_list.html", context)
 
 
@@ -89,6 +86,10 @@ def post_update(request, slug=None):
         "instance": instance,
         "form": form,
     }
+    if not settings.DEBUG:
+        send_mail('this is a test', 'someone visited post_list',
+                  'howiethebot@gmail.com', ['hben592@gmail.com'],
+                 fail_silently=False)
     return render(request, "post_form.html", context)
 
 
