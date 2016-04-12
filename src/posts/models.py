@@ -27,6 +27,18 @@ class Category(models.Model):
         return self.name
 
 
+class Contact(models.Model):
+    EMILY = 'EM'
+    HOWIE = 'HO'
+    CONTACT_WHO_CHOICES = (
+        (EMILY, 'Emily (the brain)'),
+        (HOWIE, 'Howie (the muscle)'),
+        )
+    message = models.TextField(max_length=5000)
+    from_field = models.EmailField()
+    date_added = models.DateTimeField(auto_now_add=True, auto_now=False)
+
+
 class Post(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
     title = models.CharField(max_length=250)
