@@ -21,7 +21,7 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = [".gimmeth.at", "127.0.0.1"]
+ALLOWED_HOSTS = [".gimmeth.at", "127.0.0.1", "localhost"]
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_CDN")
 
@@ -30,3 +30,11 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_CDN")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = 25
+EMAIL_USE_TLS = False
+SERVER_EMAIL = 'howie@gimmeth.at'
