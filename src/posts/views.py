@@ -31,7 +31,7 @@ def post_create(request):
         "form": form,
     }
 
-    return render(request, "post_form.html", context)
+    return render(request, "posts/pages/post_form.html", context)
 
 
 def post_detail(request, slug=None):
@@ -43,7 +43,7 @@ def post_detail(request, slug=None):
         "share_string": share_string,
     }
 
-    return render(request, "post_detail.html", context)
+    return render(request, "posts/pages/post_detail.html", context)
 
 
 def post_list(request):
@@ -66,7 +66,7 @@ def post_list(request):
         "title": "Emily's GimmeThat Blog"
     }
 
-    return render(request, "post_list.html", context)
+    return render(request, "posts/pages/post_list.html", context)
 
 
 def post_update(request, slug=None):
@@ -91,7 +91,7 @@ def post_update(request, slug=None):
 #        send_mail('this is a test', 'someone visited post_list',
 #                  'howiethebot@gmail.com', ['hben592@gmail.com'],
 #                  fail_silently=False)
-    return render(request, "post_form.html", context)
+    return render(request, "posts/pages/post_form.html", context)
 
 
 def post_delete(request, slug=None):
@@ -109,11 +109,11 @@ def post_category(request, category=None):
     # REMOVE when done
     context = {}
     if not settings.DEBUG:
-        return render(request, "construction.html", context)
+        return render(request, "posts/pages/construction.html", context)
     posts_category = Category.objects.get(slug=category)
     queryset_list = Post.objects.filter(category=posts_category)
     context = {
         "object_list": queryset_list,
         "category": category
     }
-    return render(request, "post_category_list.html", context)
+    return render(request, "posts/pages/post_category_list.html", context)
