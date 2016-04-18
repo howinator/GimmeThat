@@ -35,6 +35,7 @@ class Contact(models.Model):
         (HOWIE, 'Howie (the muscle)'),
         )
     message = models.TextField(max_length=5000)
+    from_name = models.TextField(max_length=200)
     from_field = models.EmailField()
     date_added = models.DateTimeField(auto_now_add=True, auto_now=False)
 
