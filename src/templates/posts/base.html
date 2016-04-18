@@ -4,11 +4,11 @@
 
 <head>
 
-{% include "meta_nonog_tags.html" %}
+{% include "posts/supporting/meta_nonog_tags.html" %}
     
     <title>{% block head_title %}Gimme That{% endblock head_title %}</title>
     <link rel="shortcut icon" type="image/ico" href='{% static "img/favicon.ico" %}' />
-    {% include "bootstrap_css.html" %}
+    {% include "posts/supporting/bootstrap_css.html" %}
     <link rel='stylesheet' type='text/css' href='{% static "css/base.css" %}' />
     {% block style %}{% endblock style%}
     {# Properties for facebook open graph stuff #}
@@ -16,16 +16,16 @@
     <meta property="og:title"            content="GimmeThat"/>
     <meta property="og:description"      content="Emily's GimmeThat Blog"/>
     {% block og_properties %}{% endblock og_properties %}
+    <meta name="google-site-verification" content="t6nP8t-V8BtL7X0EWJrp2S2ir9DWJk-gHzFGay-3LpQ" />
 
 </head>
 
 <body>
 
-    {% include "messages_display.html" %}
+    {% include "posts/supporting/messages_display.html" %}
     {% block content %}
     {% endblock content%}
-    {# TODO: Figure out how to properly import js scripts. #}
-    {% include "3rd_party_js.html" %} 
+    {% include "posts/supporting/third_party_js.html" %} 
     
 </body>
 

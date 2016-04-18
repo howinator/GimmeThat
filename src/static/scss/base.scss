@@ -14,12 +14,12 @@ html, body {
     height: 100%;
 }
 
-/* Since bootstrap add -15px margin to rows, I need to overwrite
-   that functionality when a row is inside a row
-*/
+// Since bootstrap add -15px margin to rows, I need to overwrite
+// that functionality when a row is inside a row
+
 .nested-row-fix {
-    margin-right: 0px;
-    margin-left: 0px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 @media (min-width: 768px){
@@ -30,7 +30,7 @@ html, body {
 }
 
 .navbar {
-    border-bottom: 1px solid #39bba3;
-    border-radius: 0px;
-    /*border-bottom-color: #39bba3;*/
+    border-bottom: 1px solid $main-seafoam;
+    border-radius: 0;
+    //border-bottom-color: #39bba3;
 }

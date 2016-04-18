@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "posts/base.html" %}
 {% load staticfiles %}
 
 {% block style %}
@@ -46,7 +46,7 @@
 </header>
 
 
-{% include "navbar.html" with active="post-list" %}
+{% include "posts/supporting/navbar.html" with active="post-list" %}
 
 <section class="about-me">
     <h1>About</h1>
@@ -99,5 +99,6 @@
     {# </div> #} <!--col-sm-8 col-sm-offset-2 -->
     </div>
 </div>
+
 
 {% endblock content %}
