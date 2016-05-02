@@ -14,7 +14,7 @@ class ContactForm(forms.ModelForm):
         self.helper.form_id = 'id_contactForm'
         self.helper.form_class = 'blueForms'
         self.helper.form_method = 'post'
-        self.helper.form_action = 'contact_us'
+        self.helper.form_action = ''
 
         self.helper.add_input(Submit('submit', 'Submit'))
 
