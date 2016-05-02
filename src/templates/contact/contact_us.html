@@ -1,0 +1,6 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+{% crispy contact_form contact_form.helper %}
+{% endblock content %}

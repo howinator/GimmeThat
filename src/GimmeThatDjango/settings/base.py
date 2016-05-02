@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'posts',
+    'crispy_forms',
+    'contact',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -167,3 +169,5 @@ LOGGING = {
         },
     }
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

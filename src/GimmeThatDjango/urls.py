@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^$', lambda r: HttpResponseRedirect('posts/')),
     url(r'^admin/', admin.site.urls),
     url(r'^posts/', include("posts.urls", namespace="posts")),
+    url(r'^contact/', include("contact.urls", namespace="contact")),
 ]
 
 if settings.DEBUG:
