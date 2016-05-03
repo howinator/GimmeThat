@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'posts',
     'crispy_forms',
     'contact',
+    'captcha',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -130,6 +131,10 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
+
+RECAPTCHA_PUBLIC_KEY = get_env_variable('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = get_env_variable('RECAPTCHA_PRIVATE_KEY')
+NOCAPTCHA = True
 
 ADMINS = [('Howie', 'hben592@gmail.com')]
 
