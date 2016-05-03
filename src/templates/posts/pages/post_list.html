@@ -5,11 +5,11 @@
     <link rel='stylesheet' type='text/css' href='{% static "css/post_list.css" %}' />
 {% endblock style %}
 
-{% block og_properties %}
+{% block page_properties %}
     <meta property="og:url"              content="https://gimmeth.at/posts" />
     {# Fix the image property. I believe I have to get the absolute uri to the image #}
     <meta property="og:image"            content='https://gimmeth.at/static/img/header-master.png' />
-{% endblock og_properties %}
+{% endblock page_properties %}
 
 
 {% block content %}

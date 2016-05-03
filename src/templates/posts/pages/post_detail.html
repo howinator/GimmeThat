@@ -3,10 +3,10 @@
 
 {% block head_title %}{{ instance.title }} | {{ block.super }}{% endblock head_title %}
 
-{% block og_properties %}
+{% block page_properties %}
     <meta property="og:url"              content="{{ request.build_absolute_uri }}"/>
 {% if instance.image %}    <meta property="og:image"            content="{{ instance.image.url }}">{% endif %}
-{% endblock og_properties %}
+{% endblock page_properties %}
 
 
 {% block content %}

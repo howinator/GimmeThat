@@ -1,6 +1,11 @@
 {% extends 'posts/base.html' %}
 
+{% block page_properties %}
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock page_properties %}
+
 {% block content %}
 {% load crispy_forms_tags %}
 {% crispy contact_form contact_form.helper %}
+<div class="g-recaptcha" data-sitekey="6Ld_5x4TAAAAAL3f6m7KIShxQ9FDaYm9addbotzA"></div>
 {% endblock content %}
