@@ -28,12 +28,10 @@ def contact_us(request):
         send_mail('You got gimmeth.at mail!', formatted_message,
                   settings.EMAIL_HOST_USER, to_email)
         instance.save()
-        messages.success(request, "Message sent! Thank you.")
         print("about to redirect")
-        return redirect("posts:list")
+        return 1
     context = {
         "contact_form": form
     }
 
-    return render(request, "contact/contact_us.html", context)
-
+    return context

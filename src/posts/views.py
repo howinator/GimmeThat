@@ -7,7 +7,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.conf import settings
-from django.core.mail import send_mail
+
+from contact.views import contact_us
 
 from .forms import PostForm
 from .models import Post, Category
@@ -47,6 +48,8 @@ def post_detail(request, slug=None):
 
 
 def post_list(request):
+
+    contact_form = contact_us(request)      
 
     queryset_list = Post.objects.all()
     paginator = Paginator(queryset_list, 5)  # Show 25 object_list per page
