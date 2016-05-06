@@ -1,3 +1,12 @@
 1) Set environment variables for secret key in virtualenv
 	http://stackoverflow.com/questions/9554087/setting-an-environment-variable-in-virtualenv
-	Need to set SECRET_KEY and DJANGO_SETTINGS_MODULE (pg. 44 of Two Scoops)
+	Need to set SECRET_KEY and DJANGO_SETTINGS_MODULE,  (pg. 44 of Two Scoops)
+    SET FOLLOWING VARIABLES:
+   unset SECRET_KEY
+unset DJANGO_SETTINGS_MODULE
+unset EMAIL_HOST_USER
+unset EMAIL_HOST_PASSWORD
+unset DB_PASSWORD
+unset DB_USER
+unset RECAPTCHA_PRIVATE_KEY
+unset RECAPTCHA_PUBLIC_KEY 

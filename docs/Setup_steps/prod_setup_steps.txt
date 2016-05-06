@@ -15,7 +15,7 @@ If you use virtualenvwrapper, you have to use virtualenvwrapper in the gunciron 
     i) make a script called secrets.sh which will contain "export SECRET_KEY='xyz' export DB_PASSWORD='xyz' etc"
         Notice the single quotes!
     ii) Also set the environment variables in $VIRTUAL_ENV/bin/postactivate then unset them in predeactivate
-        Three environment vairbales are SECRET_KEY, DB_PASSWORD, DB_USER, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
+        Three environment vairbales are SECRET_KEY, DB_PASSWORD, DB_USER, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, RECPATCHA_PRIVATE_KEY, RECPATCHA_PUBLIC_KEY
         Honestly I'm not sure if supervisor is pulling the envirionment variables from secrets.sh or the virtualenv. This should be tested
 
 5) Create symlink from supervisord.conf file to /etc/supervisor/supervisord.conf. Basically, I'm version controlling supervisor conf script so I need to symlink it into /etc/
