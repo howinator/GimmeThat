@@ -49,7 +49,7 @@ def post_detail(request, slug=None):
 
 def post_list(request):
 
-    contact_form = contact_us(request)      
+    contact_form = contact_us(request)
 
     queryset_list = Post.objects.all()
     paginator = Paginator(queryset_list, 5)  # Show 25 object_list per page
@@ -66,7 +66,8 @@ def post_list(request):
     context = {
         "page_request_var": page_request_var,
         "object_list": queryset,
-        "title": "Emily's GimmeThat Blog"
+        "title": "Emily's GimmeThat Blog",
+        "contact_form": contact_form
     }
 
     return render(request, "posts/pages/post_list.html", context)

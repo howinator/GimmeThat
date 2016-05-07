@@ -13,6 +13,6 @@ class Contact(models.Model):
     message = models.TextField(max_length=5000)
     to_name = models.CharField(max_length=2,
                                choices=CONTACT_WHO_CHOICES)
-    from_name = models.TextField(max_length=200)
+    from_name = models.CharField(max_length=200)
     from_email = models.EmailField()
     date_added = models.DateTimeField(auto_now_add=True, auto_now=False)

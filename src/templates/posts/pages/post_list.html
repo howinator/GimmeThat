@@ -1,5 +1,7 @@
 {% extends "posts/base.html" %}
 {% load staticfiles %}
+{% load crispy_forms_tags %}
+
 
 {% block style %}
     <link rel='stylesheet' type='text/css' href='{% static "css/post_list.css" %}' />
@@ -9,6 +11,7 @@
     <meta property="og:url"              content="https://gimmeth.at/posts" />
     {# Fix the image property. I believe I have to get the absolute uri to the image #}
     <meta property="og:image"            content='https://gimmeth.at/static/img/header-master.png' />
+    <script src='https://www.google.com/recaptcha/api.js'></script> 
 {% endblock page_properties %}
 
 
@@ -82,6 +85,9 @@
 
     {% endfor %}
 
+    {# Load the contact form nice and crispy #}
+    {% crispy contact_form contact_form.helper %} 
+
     <div class="pagination">
         <span class="step-links">
             {% if object_list.has_previous %}
@@ -100,5 +106,6 @@
     </div>
 </div>
 
-
+{# ReCAPTCHA requirement #}
+<div class="g-recaptcha" data-sitekey="6Ld_5x4TAAAAAL3f6m7KIShxQ9FDaYm9addbotzA"></div>
 {% endblock content %}

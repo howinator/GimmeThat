@@ -8,7 +8,7 @@ from .forms import ContactForm
 # Create your views here.
 
 
-def contact_us(request):
+def contact_us(request, from_view='posts:list'):
     form = ContactForm(request.POST or None)
     if form.is_valid():
         instance = form.save(commit=False)
@@ -28,10 +28,8 @@ def contact_us(request):
         send_mail('You got gimmeth.at mail!', formatted_message,
                   settings.EMAIL_HOST_USER, to_email)
         instance.save()
+        messages.success(request, "Message received - thanks!")
         print("about to redirect")
-        return 1
-    context = {
-        "contact_form": form
-    }
+        return redirect(from_view)
 
-    return context
+    return form
