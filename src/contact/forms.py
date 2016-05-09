@@ -1,7 +1,7 @@
 from django import forms
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Field, Layout
+from crispy_forms.layout import Submit, Field, Layout, Fieldset
 
 from captcha.fields import ReCaptchaField
 
@@ -17,6 +17,15 @@ class ContactForm(forms.ModelForm):
         self.helper.form_class = 'blueForms'
         self.helper.form_method = 'post'
         self.helper.form_action = 'contact:contact_us'
+
+        self.helper.layout = Layout(
+            Fieldset(
+                'Want to get in touch?',
+                'from_name',
+                'from_email',
+                'to_name',
+                'message'
+                ))
 
         # change label on fields. You can change the label of a field
         # at the model level or the form label. verbose_name is how you would
