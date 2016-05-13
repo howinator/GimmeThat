@@ -25,8 +25,11 @@ def contact_us(request, from_view='posts:list'):
                 person=instance.from_name,
                 email=instance.from_email,
                 message=instance.message)
-        send_mail('You got gimmeth.at mail!', formatted_message,
-                  settings.EMAIL_HOST_USER, to_email)
+        try:
+            send_mail('You got gimmeth.at mail!', formatted_message,
+                      settings.EMAIL_HOST_USER, to_email)
+        except:
+            instance.email_failed = True
         instance.save()
         messages.success(request, "Message received - thanks!")
         print("about to redirect")

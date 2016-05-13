@@ -50,4 +50,12 @@ header {
   right: 20%;
   width: 60%; }
 
+legend {
+  color: #444;
+  font-family: 'PT Sans', sans-serif; }
+
+.form-text-fields * {
+  color: #444;
+  font-family: 'PT Sans', sans-serif; }
+
 /*# sourceMappingURL=post_list.css.map */

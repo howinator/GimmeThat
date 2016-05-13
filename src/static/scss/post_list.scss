@@ -74,3 +74,12 @@ header {
     }
 }
 
+legend {
+    color: $dark-grey;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.form-text-fields * {
+    color: $dark-grey;
+    font-family: 'PT Sans', sans-serif;
+}

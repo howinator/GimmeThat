@@ -67,7 +67,8 @@ def post_list(request):
         "page_request_var": page_request_var,
         "object_list": queryset,
         "title": "Emily's GimmeThat Blog",
-        "contact_form": contact_form
+        "contact_form": contact_form,
+        "debug": settings.DEBUG
     }
 
     return render(request, "posts/pages/post_list.html", context)

@@ -1,7 +1,8 @@
 from django import forms
+from django.utils.safestring import mark_safe
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Field, Layout, Fieldset
+from crispy_forms.layout import Submit, Field, Layout, Fieldset, Div
 
 from captcha.fields import ReCaptchaField
 
@@ -21,11 +22,14 @@ class ContactForm(forms.ModelForm):
         self.helper.layout = Layout(
             Fieldset(
                 'Want to get in touch?',
-                'from_name',
-                'from_email',
-                'to_name',
-                'message'
-                ))
+                Div(
+                    'from_name',
+                    'from_email',
+                    'to_name',
+                    'message',
+                    'captcha',
+                    css_class='form-text-fields'
+                )))
 
         # change label on fields. You can change the label of a field
         # at the model level or the form label. verbose_name is how you would
@@ -49,5 +53,5 @@ class ContactForm(forms.ModelForm):
         ]
     CONTACT_WHO_CHOICES = Contact.CONTACT_WHO_CHOICES
     to_name = forms.ChoiceField(choices=CONTACT_WHO_CHOICES,
-                               widget=forms.RadioSelect)
+                                widget=forms.RadioSelect)
     captcha = ReCaptchaField()

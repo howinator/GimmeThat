@@ -15,4 +15,5 @@ class Contact(models.Model):
                                choices=CONTACT_WHO_CHOICES)
     from_name = models.CharField(max_length=200)
     from_email = models.EmailField()
+    email_failed = models.NullBooleanField(blank=True)
     date_added = models.DateTimeField(auto_now_add=True, auto_now=False)
