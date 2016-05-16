@@ -18,15 +18,25 @@ logger = logging.getLogger(__name__)
 
 
 def post_create(request):
+    """ View to create a new post.
+
+    This view is used to create a new post and re-direct the user to
+    the URL for the new post.
+    """
+    # We can't let people creat a post if they don't have the correct
+    # permissions
     if not request.user.is_staff or not request.user.is_superuser:
         return HttpResponse('Unauthorized', status=401)
     form = PostForm(request.POST or None, request.FILES or None)
+    # process the form if it's valid
     if form.is_valid():
         instance = form.save(commit=False)
+        # we should save who is posting
         instance.user = request.user
         instance.save()
         # messages success
         messages.success(request, "Succesfully created")
+        # the model for a post has the absolute url which we re-direct to
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
         "form": form,
@@ -36,6 +46,7 @@ def post_create(request):
 
 
 def post_detail(request, slug=None):
+    """ View displayes the actual post."""
     instance = get_object_or_404(Post, slug=slug)
     share_string = quote_plus(instance.content)
     context = {
