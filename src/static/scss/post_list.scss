@@ -1,4 +1,6 @@
 @import 'partials/color_scheme_vars';
+@import 'partials/media_queries';
+
 
 header {
     color: $pure-white;
@@ -82,4 +84,35 @@ legend {
 .form-text-fields * {
     color: $dark-grey;
     font-family: 'PT Sans', sans-serif;
+}
+
+.center-flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.read-more-section {
+    margin-top: 5%;
+    padding-top: 5%;
+    height: 50px;
+    width: 100%;
+}
+
+.read-more-button {
+    height: 4em;
+    width: 4em;
+
+    @include desktop {
+        height: 8em;
+        width: 8em;
+    }
+}
+
+.round-button {
+    border-radius: 50%;
+    border-style: solid;
+    border-color: $main-seafoam;
+    border-width: 2px;
+    // background: $light-grey;
 }

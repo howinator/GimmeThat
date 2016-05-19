@@ -48,11 +48,9 @@ def post_create(request):
 def post_detail(request, slug=None):
     """ View displayes the actual post."""
     instance = get_object_or_404(Post, slug=slug)
-    share_string = quote_plus(instance.content)
     context = {
         "instance": instance,
         "title": "Detail",
-        "share_string": share_string,
     }
 
     return render(request, "posts/pages/post_detail.html", context)
@@ -64,7 +62,7 @@ def post_list(request):
 
     queryset_list = Post.objects.all()
     paginator = Paginator(queryset_list, 5)  # Show 25 object_list per page
-    page_request_var = "emily"
+    page_request_var = "page"
     page = request.GET.get(page_request_var)
     try:
         queryset = paginator.page(page)

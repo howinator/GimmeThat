@@ -23,8 +23,12 @@
 
     {% include "posts/supporting/messages_display.html" %}
     {% block content %}
-    {% endblock content%}
-    {% include "posts/supporting/third_party_js.html" %} 
+    {% endblock content%} 
+
+    {# TODO Re-factor this so that third party js goes in the inherited templates #}
+    <div class="js-scripts">
+    {% include "posts/supporting/third_party_js.html" %}
+    </div>
     
 </body>
 

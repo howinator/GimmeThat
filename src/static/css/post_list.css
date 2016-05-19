@@ -58,4 +58,33 @@ legend {
   color: #444;
   font-family: 'PT Sans', sans-serif; }
 
+.center-flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.read-more-section {
+  margin-top: 5%;
+  padding-top: 5%;
+  height: 50px;
+  width: 100%; }
+
+.read-more-button {
+  height: 4em;
+  width: 4em; }
+  @media (min-width: 1024px) {
+    .read-more-button {
+      height: 8em;
+      width: 8em; } }
+  @media (min-width: 800px) {
+    .read-more-button {
+      height: 8em;
+      width: 8em; } }
+
+.round-button {
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #39bba3;
+  border-width: 2px; }
+
 /*# sourceMappingURL=post_list.css.map */

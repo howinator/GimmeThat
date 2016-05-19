@@ -1,0 +1,18 @@
+// Copied from https://davidwalsh.name/write-media-queries-sass (saved in ~/Documents)
+$desktop-width: 1024px;
+$desktop-dev: 800px;
+
+
+// responsive design means we define media queries starting at min-width
+// adding
+@mixin desktop {
+    // need to use string interpolation
+    // @content will fill in with the arguments of the mixin call
+    @media (min-width: #{$desktop-width}) {
+        @content
+    }
+    // defining
+    @media (min-width: #{$desktop-dev}){
+        @content
+    }
+}
