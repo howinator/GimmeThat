@@ -83,6 +83,34 @@ def post_list(request):
     return render(request, "posts/pages/post_list.html", context)
 
 
+def post_grid(request):
+    """ Renders and loads the next page of posts."""
+
+    # set the query string variable passed by client
+    page_request_var = "page"
+    # request.GET.get(var) will return the query parameter after the '=' sign
+    page_number = request.GET.get(page_request_var)
+
+    # we need to get a slice of the posts corresponding to the requested page
+    # number
+    num_posts_on_page = 5
+    queryset_list = Post.objects.all()
+    # if next page requested is 1 we start at post[5] end at post[10]
+    posts_index_start = page_number * num_posts_on_page
+    posts_index_end = (page_number + 1) * num_posts_on_page
+    # trusts the posts are ordered in reverse order
+    # TODO write test that asserts posts are returned in reverse order
+    # off by one risk galore right here
+    post_slice = queryset_list[posts_index_start:posts_index_end]
+
+    context = {
+        "object_list": post_slice,
+        "debug": settings.DEBUG,
+    }
+
+    render(request, "posts/supporting/post_grid.html", context)
+
+
 def post_update(request, slug=None):
     if not request.user.is_staff or not request.user.is_superuser:
         return HttpResponse('Unauthorized', status=401)

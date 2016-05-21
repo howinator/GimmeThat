@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^(?P<slug>[\w-]+)/edit/$', views.post_update, name='update'),
     url(r'^category/(?P<category>[\w-]+)/$',
         views.post_category, name='category'),
+    url(r'grid/$', views.post_grid, name='grid'),
 ]

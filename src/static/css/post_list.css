@@ -63,28 +63,36 @@ legend {
   justify-content: center;
   align-items: center; }
 
-.read-more-section {
-  margin-top: 5%;
-  padding-top: 5%;
-  height: 50px;
-  width: 100%; }
+.round-button {
+  border-radius: 50%; }
 
-.read-more-button {
+.more-outer-button {
   height: 4em;
-  width: 4em; }
+  width: 4em;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ff944e; }
   @media (min-width: 1024px) {
-    .read-more-button {
+    .more-outer-button {
       height: 8em;
       width: 8em; } }
   @media (min-width: 800px) {
-    .read-more-button {
+    .more-outer-button {
       height: 8em;
       width: 8em; } }
 
-.round-button {
-  border-radius: 50%;
-  border-style: solid;
-  border-color: #39bba3;
-  border-width: 2px; }
+.more-inner-button {
+  height: 3em;
+  width: 3em;
+  background-color: #39bba3;
+  color: white; }
+  @media (min-width: 1024px) {
+    .more-inner-button {
+      height: 6em;
+      width: 6em; } }
+  @media (min-width: 800px) {
+    .more-inner-button {
+      height: 6em;
+      width: 6em; } }
 
 /*# sourceMappingURL=post_list.css.map */
