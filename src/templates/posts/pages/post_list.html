@@ -88,6 +88,8 @@
   {% endfor %}
 </div>
 
+{% include "posts/supporting/post_grid.html" %}
+
 {# TODO: This is making a scroll bar appear on smaller screens #} 
 <div class="contact-us container-fluid">
   <div class="row">
@@ -102,9 +104,7 @@
  {# This is where I stopped caring about supporting IE 9- #}
 <div class="center-flex-container">
   <div class="center-flex-container round-button more-outer-button">
-    <a class="center-flex-container" href="#">
-      <div class="center-flex-container round-button more-inner-button">Read more</div>
-    </a>
+      <div id="read-more-button" class="center-flex-container round-button more-inner-button">Read more</div>
   </div>
 </div>
 
@@ -128,4 +128,5 @@
 
 {# ReCAPTCHA requirement #}
 <div class="g-recaptcha" data-sitekey="6Ld_5x4TAAAAAL3f6m7KIShxQ9FDaYm9addbotzA"></div>
+<script src="{% static 'js/home.js' %}"></script>
 {% endblock content %}

@@ -88,8 +88,13 @@ def post_grid(request):
 
     # set the query string variable passed by client
     page_request_var = "page"
+    print(page_request_var)
+
     # request.GET.get(var) will return the query parameter after the '=' sign
     page_number = request.GET.get(page_request_var)
+    print(page_number)
+    page_number = int(page_number)
+    print(type(page_number))
 
     # we need to get a slice of the posts corresponding to the requested page
     # number
@@ -102,13 +107,14 @@ def post_grid(request):
     # TODO write test that asserts posts are returned in reverse order
     # off by one risk galore right here
     post_slice = queryset_list[posts_index_start:posts_index_end]
+    print(post_slice)
 
     context = {
         "object_list": post_slice,
         "debug": settings.DEBUG,
     }
 
-    render(request, "posts/supporting/post_grid.html", context)
+    return render(request, "posts/supporting/post_grid.html", context)
 
 
 def post_update(request, slug=None):
