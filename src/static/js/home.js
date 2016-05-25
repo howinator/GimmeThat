@@ -17,9 +17,20 @@ var read_more_button = document.getElementById("read-more-button");
             alert('Ripped this straignt from Mozilla docs - sorry :(');
             return false;
         }
-        httpRequest.onreadystatechange = alertContents;
+        httpRequest.onreadystatechange = addNewPosts;
         httpRequest.open('GET', url);
         httpRequest.send();
+    }
+
+    function addNewPosts() {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+            if (httpRequest.status === 200) {
+               response_container = document.getElementById("next-set");
+               response_container.innerHTML = httpRequest.responseText; 
+            } else {
+                alert('There was a problem');
+            }
+        }
     }
 
     function alertContents() {
