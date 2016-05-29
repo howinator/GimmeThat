@@ -57,7 +57,12 @@ def post_detail(request, slug=None):
 
 
 def post_list(request):
+    """ Renders the homepage.
 
+    Currently, this view renders the initial list of posts, the home page,
+    and the contact form. In the future, we might want to break this up."""
+
+    # TODO refactor this so that AJAX is handling the display of any posts
     contact_form = contact_us(request)
 
     queryset_list = Post.objects.all()
@@ -88,13 +93,10 @@ def post_grid(request):
 
     # set the query string variable passed by client
     page_request_var = "page"
-    print(page_request_var)
 
     # request.GET.get(var) will return the query parameter after the '=' sign
     page_number = request.GET.get(page_request_var)
-    print(page_number)
     page_number = int(page_number)
-    print(type(page_number))
 
     # we need to get a slice of the posts corresponding to the requested page
     # number
@@ -112,6 +114,7 @@ def post_grid(request):
     context = {
         "object_list": post_slice,
         "debug": settings.DEBUG,
+        "page_number": page_number,
     }
 
     return render(request, "posts/supporting/post_grid.html", context)

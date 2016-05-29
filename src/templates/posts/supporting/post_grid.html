@@ -1,7 +1,12 @@
-<div class="container-fluid">
-  {% for obj in object_list %}
-  <div class="row">
-    <div class="col-sm-12">
+{% for obj in object_list %}
+
+{# I need to set the behavior of the last row for each new request #}
+{% if obj == object_list|last %}
+<div class="row" id="last-post" data-page-number="{{ page_number }}">
+{% endif %}
+  <div class="col-sm-12">
+
+    <article>
       <div class="thumbnail">
         {% if obj.image %}
         <img src="{{ obj.image.url }}" class="img-responsive"/> 
@@ -13,11 +18,13 @@
           <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p>
         </div>
       </div>
-    </div>
-    {# If this is the last object in the list, don't print the new line #}
-    {% if object_list|last != obj %}
-    <hr/>
-    {% endif %}
+    </article>
+
   </div>
-  {% endfor %}
+  {# If this is the last object in the list, don't print the new line #}
+  {% if object_list|last != obj %}
+  <hr/>
+  {% endif %}
 </div>
+
+{% endfor %}
