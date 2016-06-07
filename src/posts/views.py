@@ -109,14 +109,13 @@ def post_grid(request):
     # TODO write test that asserts posts are returned in reverse order
     # off by one risk galore right here
     post_slice = queryset_list[posts_index_start:posts_index_end]
-    print(post_slice)
 
     context = {
         "object_list": post_slice,
         "debug": settings.DEBUG,
         "page_number": page_number,
     }
-
+    print(context)
     return render(request, "posts/supporting/post_grid.html", context)
 
 
