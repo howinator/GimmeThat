@@ -109,6 +109,8 @@ def post_grid(request):
     # TODO write test that asserts posts are returned in reverse order
     # off by one risk galore right here
     post_slice = queryset_list[posts_index_start:posts_index_end]
+    if not post_slice:
+        return HttpResponse(status=204)
 
     context = {
         "object_list": post_slice,
