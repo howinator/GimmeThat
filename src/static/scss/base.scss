@@ -1,4 +1,7 @@
 @import 'partials/color_scheme_vars';
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+$open-sans: 'Open Sans', sans-serif;
 
 @font-face {
     font-family: hellenascript;
@@ -12,6 +15,7 @@
 
 html, body {
     height: 100%;
+    font-family: $open-sans;
 }
 
 // Since bootstrap add -15px margin to rows, I need to overwrite

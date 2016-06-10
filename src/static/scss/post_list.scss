@@ -55,7 +55,7 @@ header {
 
 .about-me {
     * {
-        font-family: 'PT Sans', sans-serif;
+        //font-family: 'PT Sans', sans-serif;
     }
 
     h1 {
@@ -97,28 +97,35 @@ legend {
     // background: $light-grey;
 }
 
-.more-outer-button {
-    height: 4em;
-    width: 4em;
+// .more-outer-button {
+//     height: 100px;
+//     width: 100px;
 
-    @include desktop {
-        height: 8em;
-        width: 8em;
-    }
-    border-style: solid;
-    border-width: 1px; 
-    border-color: $accent-orange;
-}
+//     @include desktop {
+//         height: 8em;
+//         width: 8em;
+//     }
+//     border-style: solid;
+//     border-width: 1px; 
+//     border-color: $accent-orange;
+// }
 
 .more-inner-button {
-    height: 3em;
-    width: 3em;
+    height: 100px;
+    width: 100px;
+    font-size: 16px;
     @include desktop {
-        height: 6em;
-        width: 6em;
+        height: 150px;
+        width: 150px;
+        font-size: 18px
     }
-    background-color: $main-seafoam;
-    color: white;
+    // background-color: $main-seafoam;
+    color: $main-seafoam;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 2px;
+    border-color: $main-seafoam;
+    margin-bottom: 15px;
 
 }
 

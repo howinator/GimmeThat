@@ -50,23 +50,7 @@ function PostListHttpRequest() {
 /** makeRequest will use the information set-up by PostListHttpRequest to
 actually make the request. It then calls addNewPosts to deal with adding the 
 response to the DOM. 
-
-DOM of posts:
-<section id="post-list">
-  <div class="containter-fluid">
-    post_grid:
-      {MORE POSTS}
-      <div class="row" id="last-post" data-page-number="{{NUMBER}}">
-        {{POST}}
-
-How the post appendage works:
-1) Event is added to trigger on click of read-more button
-2) js:makeRequest instantiates PostListHttpRequest which sets some things up and makes the AJAX request
-        a. It gets the div class="row" of the last post
-3) js:addNewPosts will add posts to the DOM by:
-        a. creating an element
-        b. populating this element's innerHTML
-        c. appending this element to the DOM**/
+**/
 function makeRequest() {
     // TODO Look into integrating this into the PostListHttpRequest object.
     var postRequest = new PostListHttpRequest();
@@ -89,7 +73,6 @@ function addNewPosts(rqst) {
             // i want to put each set of posts in a containing div 
             // so that I can just set the innerHTML of that element and append
             // it to the post container
-            // Remember that post_page is set server side
             post_page_ele = document.createElement("div");
             post_page_ele.setAttribute('class', 'post-page');
 
@@ -153,48 +136,3 @@ function checkAndRemoveAttribute(ele, attribute) {
     }
 } 
 
-// (function() {
-//     var httpRequest;
-//     var requested_page = currentPage + 1;
-//     request_str = "grid/?" + page_request_var + "=" + requested_page;
-//     read_more_button.addEventListener("click", function(){makeRequest(request_str)}, false);
-//     // read_more_button.onclick = function() { makeRequest(request_str); };
-
-//     function makeRequest(url) {
-//         httpRequest = new XMLHttpRequest();
-
-//         if (!httpRequest) {
-//             alert('Ripped this straignt from Mozilla docs - sorry :(');
-//             return false;
-//         }
-//         httpRequest.onreadystatechange = addNewPosts;
-//         httpRequest.open('GET', url);
-//         httpRequest.send();
-//     }
-
-//     function addNewPosts() {
-//         if (httpRequest.readyState === XMLHttpRequest.DONE) {
-//             if (httpRequest.status === 200) {
-//                response_container = document.getElementById("next-set");
-//                response_container.innerHTML = httpRequest.responseText;
-//                currentPage = requested_page;
-//             } else {
-//                 alert('There was a problem');
-//             }
-//         }
-//     }
-//     function formPostEle(htmlFromServer) {
-//         var ele = document.createElement('div');
-//         ele.className = "post-list";
-//     }
-
-//     function alertContents() {
-//         if (httpRequest.readyState === XMLHttpRequest.DONE) {
-//             if (httpRequest.status === 200) {
-//                 alert(httpRequest.responseText);
-//             } else {
-//                 alert('There was a problem with the request.');
-//             }
-//         }
-//     }
-// })();

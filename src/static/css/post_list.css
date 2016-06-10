@@ -34,8 +34,6 @@ header {
   font-size: 3.3vw;
   margin-top: -4%; }
 
-.about-me * {
-  font-family: 'PT Sans', sans-serif; }
 .about-me h1 {
   color: #444;
   margin-top: 35px;
@@ -66,33 +64,25 @@ legend {
 .round-button {
   border-radius: 50%; }
 
-.more-outer-button {
-  height: 4em;
-  width: 4em;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #ff944e; }
-  @media (min-width: 1024px) {
-    .more-outer-button {
-      height: 8em;
-      width: 8em; } }
-  @media (min-width: 800px) {
-    .more-outer-button {
-      height: 8em;
-      width: 8em; } }
-
 .more-inner-button {
-  height: 3em;
-  width: 3em;
-  background-color: #39bba3;
-  color: white; }
+  height: 100px;
+  width: 100px;
+  font-size: 16px;
+  color: #2FA892;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #2FA892;
+  margin-bottom: 15px; }
   @media (min-width: 1024px) {
     .more-inner-button {
-      height: 6em;
-      width: 6em; } }
+      height: 150px;
+      width: 150px;
+      font-size: 18px; } }
   @media (min-width: 800px) {
     .more-inner-button {
-      height: 6em;
-      width: 6em; } }
+      height: 150px;
+      width: 150px;
+      font-size: 18px; } }
 
 /*# sourceMappingURL=post_list.css.map */
