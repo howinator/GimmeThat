@@ -2,6 +2,10 @@
 @import 'partials/media_queries';
 
 
+#contact-faded-container {
+    height: 100%;
+}
+
 header {
     color: $pure-white;
     height: 90%;
@@ -129,4 +133,18 @@ legend {
 
 }
 
+.faded-element {
+    opacity: 0.5;
+}
 
+#contact-us-button {
+    pointer: cursor;
+}
+
+.contact-us-hidden {
+    display: hidden;
+}
+
+.contact-us-visible {
+    z-index: 3;
+}

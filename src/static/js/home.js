@@ -3,11 +3,18 @@
 // var currentPage = 0;
 // TODO change this to pull the page_request_var from the DOM
 
-var page_request_var = (function() {
+var POSTSAPP = POSTSAPP || {};
+var CONTACTAPP = CONTACTAPP || {};
+
+// IIFE because I'm getting an attribute which needs to call another function
+POSTSAPP.page_request_var = (function() {
     return getAttribute(document.getElementById('post-list'), 'data-page-request-var');
 })();
-var last_post_page_name = "last_post_page";
-var read_more_button = document.getElementById("read-more-button");
+POSTSAPP.last_post_page_name = "last_post_page";
+POSTSAPP.read_more_button = document.getElementById("read-more-button");
+
+CONTACTAPP.contact_us_button = document.getElementById('contact-us-button');
+CONTACTAPP.page_container = document.getElementById('contact-faded-container');
 
 // we wanrt to add all the event handlers once the page has loaded
 // TODO might consider doing that DOM built thing instead
@@ -23,7 +30,17 @@ function prepareEventHandlers() {
     // just the function with parenthesis, the function will be called
     // right when it is written
     // onload->click->makeRequest->instantiates PostListHttpRequest
-    read_more_button.addEventListener("click", makeRequest, false);
+    POSTSAPP.read_more_button.addEventListener("click", makeRequest, false);
+    CONTACTAPP.contact_us_button.addEventListener("click", showContactPage, false);
+}
+
+/** fades the web page and overlays the contact form **/
+function showContactPage() {
+    fadeEle(CONTACTAPP.page_container);
+}
+
+function fadeEle(ele) {
+    ele.setAttribute('class', 'faded-element');
 }
 
 /** This object sets up a Post List HTTP Request.
@@ -32,8 +49,8 @@ re-use this object with different parameters.
 @constructor **/
 function PostListHttpRequest() {
 
-    if (document.getElementById(last_post_page_name)) {
-        this.previous_post_page = document.getElementById(last_post_page_name);
+    if (document.getElementById(POSTSAPP.last_post_page_name)) {
+        this.previous_post_page = document.getElementById(POSTSAPP.last_post_page_name);
         this.requested_page = Number(this.previous_post_page.getAttribute("data-page-number")) + 1;
     } else {
         this.requested_page = "0";
@@ -44,7 +61,7 @@ function PostListHttpRequest() {
     // Used firstElementChild because firstChild returns a textNode
     this.target_container = document.getElementById("post-list").firstElementChild; 
     this.httpRequest = new XMLHttpRequest();
-    this.request_url = "grid/?" + page_request_var + "=" + this.requested_page;    
+    this.request_url = "grid/?" + POSTSAPP.page_request_var + "=" + this.requested_page;    
 }
 
 /** makeRequest will use the information set-up by PostListHttpRequest to
@@ -80,7 +97,7 @@ function addNewPosts(rqst) {
                 checkAndRemoveAttribute(rqst.previous_post_page, 'id');
             }
 
-            post_page_ele.setAttribute('id', last_post_page_name);
+            post_page_ele.setAttribute('id', POSTSAPP.last_post_page_name);
             post_page_ele.setAttribute('data-page-number', rqst.requested_page);
             post_page_ele.innerHTML = rqst.httpRequest.responseText;
             // parent_container is the div containing the post-page div

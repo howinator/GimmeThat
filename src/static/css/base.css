@@ -9,6 +9,9 @@ html, body {
   height: 100%;
   font-family: "Open Sans", sans-serif; }
 
+#contact-faded {
+  height: 100%; }
+
 .nested-row-fix {
   margin-left: 0;
   margin-right: 0; }
@@ -18,7 +21,7 @@ html, body {
     margin-left: 1em;
     margin-right: 1em; } }
 .navbar {
-  border-bottom: 1px solid #39bba3;
+  border-bottom: 1px solid #2FA892;
   border-radius: 0; }
 
 /*# sourceMappingURL=base.css.map */

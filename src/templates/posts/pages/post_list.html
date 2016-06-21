@@ -17,73 +17,79 @@
 
 {% block content %}
 <!-- Under construction. Please disregard the commented code! -->
-<header>
-  <div class="container-fluid">
-    <div class="cover">
-      <div class="row">
-        {# instead of doing this, look at doing vertical-align as table #}
-        <div class="header-spacer"></div> <!-- Need spacer at beginning and end -->
-        <div class="row nested-row-fix title-row">
-          <div class="col-xs-1"></div>
-          <div class="col-xs-10">
-            <h1 id="header-text">Gimme That</h1>
-          </div>
-          <div class="col-xs-1"></div>
-        </div> <!-- title-row -->
-        <div class="row nested-row-fix header-middle-row">
-          <div class="col-xs-3"></div>
-          <div class="col-xs-6 header-line"> </div>
-          <div class="col-xs-3"></div>
-        </div> <!-- header-middle-row -->
-        <div class="row nested-row-fix subtext-row">
-          <div class="col-xs-2"></div>
-          <div class="col-xs-8">
-            <h2 id="cover-subtext">TASTY BITES - ADVENTURES - GRAPHICS</h2>
-          </div>
-          <div class="col-xs-2"></div>
-        </div> <!-- subtext-row -->
-        <div class="header-space"></div> <!-- Need spacer at beginning and end -->
+<div id="contact-faded-container">
+  <header>
+    <div class="container-fluid">
+      <div class="cover">
+        <div class="row">
+          {# instead of doing this, look at doing vertical-align as table #}
+          <div class="header-spacer"></div> <!-- Need spacer at beginning and end -->
+          <div class="row nested-row-fix title-row">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10">
+              <h1 id="header-text">Gimme That</h1>
+            </div>
+            <div class="col-xs-1"></div>
+          </div> <!-- title-row -->
+          <div class="row nested-row-fix header-middle-row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6 header-line"> </div>
+            <div class="col-xs-3"></div>
+          </div> <!-- header-middle-row -->
+          <div class="row nested-row-fix subtext-row">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8">
+              <h2 id="cover-subtext">TASTY BITES - ADVENTURES - GRAPHICS</h2>
+            </div>
+            <div class="col-xs-2"></div>
+          </div> <!-- subtext-row -->
+          <div class="header-space"></div> <!-- Need spacer at beginning and end -->
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
 
-{% include "posts/supporting/navbar.html" with active="post-list" %}
+  {% include "posts/supporting/navbar.html" with active="post-list" %}
 
-<section class="about-me">
-  <h1>About</h1>
-  <p>Oh hello! I’m Emily, a foodie, amateur graphic designer, and rock climbing junkie.  You found this blog because: 1) I handed you my business card or 2) I applied to your company. Regardless, thank you for stopping by and taking a look! <br><br>
+  <section class="about-me">
+    <h1>About</h1>
+    <p>Oh hello! I’m Emily, a foodie, amateur graphic designer, and rock climbing junkie.  You found this blog because: 1) I handed you my business card or 2) I applied to your company. Regardless, thank you for stopping by and taking a look! <br><br>
 
-    There are a plethora of web publishing platforms to choose from, such as WordPress or Squarespace. All of them offer easy to use templates, enabling the user to hit the ground running. Opting out of those accessible platforms and with a DIY attitude, my boyfriend, Howie, and I hand crafted this blog from scratch. <br><br>
+      There are a plethora of web publishing platforms to choose from, such as WordPress or Squarespace. All of them offer easy to use templates, enabling the user to hit the ground running. Opting out of those accessible platforms and with a DIY attitude, my boyfriend, Howie, and I hand crafted this blog from scratch. <br><br>
 
-    Howie and I did not want “just a blog”, but a project we could collaborate on. We sought to step into uncharted territory and try something new.
-    <i>Gimme That</i> was created to showcase his web development skills, my creative endeavors for UI/UX design, and the adventures we share. <br><br>
+      Howie and I did not want “just a blog”, but a project we could collaborate on. We sought to step into uncharted territory and try something new.
+      <i>Gimme That</i> was created to showcase his web development skills, my creative endeavors for UI/UX design, and the adventures we share. <br><br>
 
-    Additionally, I love to cook, explore the outdoors with my dogs, and express my eye for design. Please bear with us as this site continuously evolves.
-  </p>
-</section>
+      Additionally, I love to cook, explore the outdoors with my dogs, and express my eye for design. Please bear with us as this site continuously evolves.
+    </p>
+  </section>
 
-<section id="post-list" data-page-request-var="{{ page_request_var }}">
-  <div class="container-fluid">
-  </div>
-</section>
-
-{# TODO: This is making a scroll bar appear on smaller screens #} 
-<div class="contact-us container-fluid">
-  <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      {# Load the contact form nice and crispy #}
-      {% crispy contact_form contact_form.helper %}
+  <section id="post-list" data-page-request-var="{{ page_request_var }}">
+    <div class="container-fluid">
     </div>
-    <div class="col-md-4"></div> 
-  </div>
-</div> 
- {# This is where I stopped caring about supporting IE 9- #}
-<div class="center-flex-container">
-  <div id="read-more-button" class="center-flex-container round-button more-inner-button">Read More</div>
-</div>
+  </section>
+
+
+
+  {# TODO: This is making a scroll bar appear on smaller screens #} 
+  <div class="contact-us-hidden container-fluid">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        {# Load the contact form nice and crispy #}
+        {% crispy contact_form contact_form.helper %}
+      </div>
+      <div class="col-md-4"></div> 
+    </div>
+  </div> <!-- .contact-us .container-fluid -->
+
+  {# This is where I stopped caring about supporting IE 9- #}
+  <div class="center-flex-container">
+    <div id="read-more-button" class="center-flex-container round-button more-inner-button">Read More</div>
+  </div> <!-- .center-flex-containter -->
+
+</div> <!-- #contact-faded -->
 
 {# ReCAPTCHA requirement #}
 <div class="g-recaptcha" data-sitekey="6Ld_5x4TAAAAAL3f6m7KIShxQ9FDaYm9addbotzA"></div>

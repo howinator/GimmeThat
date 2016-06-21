@@ -1,3 +1,6 @@
+#contact-faded-container {
+  height: 100%; }
+
 header {
   color: #fff;
   height: 90%; }
@@ -84,5 +87,17 @@ legend {
       height: 150px;
       width: 150px;
       font-size: 18px; } }
+
+.faded-element {
+  opacity: 0.5; }
+
+#contact-us-button {
+  pointer: cursor; }
+
+.contact-us-hidden {
+  display: hidden; }
+
+.contact-us-visible {
+  z-index: 3; }
 
 /*# sourceMappingURL=post_list.css.map */
