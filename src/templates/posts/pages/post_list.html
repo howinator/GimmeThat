@@ -91,6 +91,17 @@
 
 </div> <!-- #contact-faded -->
 
+<div class="contact-us-hidden container-fluid" id="contact-show">
+  <div class="row">
+    {# <div class="col-md-4"></div> #}
+    <div class="col-md-12">
+      {# Load the contact form nice and crispy #}
+      {% crispy contact_form contact_form.helper %}
+    </div>
+    {# <div class="col-md-4"></div>  #}
+  </div> 
+</div>
+
 {# ReCAPTCHA requirement #}
 <div class="g-recaptcha" data-sitekey="6Ld_5x4TAAAAAL3f6m7KIShxQ9FDaYm9addbotzA"></div>
 <script src="{% static 'js/home.js' %}"></script>

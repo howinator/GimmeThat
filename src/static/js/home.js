@@ -6,6 +6,9 @@
 var POSTSAPP = POSTSAPP || {};
 var CONTACTAPP = CONTACTAPP || {};
 
+var windowHeight = window.innerHeight;
+var windowWidth = window.innerwidth;
+
 // IIFE because I'm getting an attribute which needs to call another function
 POSTSAPP.page_request_var = (function() {
     return getAttribute(document.getElementById('post-list'), 'data-page-request-var');
@@ -37,6 +40,7 @@ function prepareEventHandlers() {
 /** fades the web page and overlays the contact form **/
 function showContactPage() {
     fadeEle(CONTACTAPP.page_container);
+    document.getElementById("contact-show").setAttribute("class", "contact-us-visible container-fluid");
 }
 
 function fadeEle(ele) {

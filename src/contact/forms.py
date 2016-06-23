@@ -24,7 +24,6 @@ class ContactForm(forms.ModelForm):
         self.helper = FormHelper()
         # set a few attributes in the HTML
         self.helper.form_id = 'id_contactForm'
-        self.helper.form_class = 'blueForms'
         self.helper.form_method = 'post'
         # form_action will call the specified url. This accepts a URL name
         # which I preface with the namespace.

@@ -18,7 +18,9 @@
         <li {% if active == 'graphics' %}class="active"{% endif %}><a href="{% url 'posts:category' 'graphics' %}">Graphics</a></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li id="contact-us-button">Contact Us</li>
+        {# I want this link to do nothing so that I don' have to re-write all of bootstrap's css #}
+        {# <li id="contact-us-button"><a href="javaScript:void(0);">Contact Us</a></li> #}
+        <li id="contact-us-button"><a>Contact Us</a></li>
         {# <li> Built with &#9829; by Howie &amp; Emily </li> #}
         {# <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> #}
         {# <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> #}

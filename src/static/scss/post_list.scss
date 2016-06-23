@@ -138,13 +138,24 @@ legend {
 }
 
 #contact-us-button {
-    pointer: cursor;
+    > a {
+        cursor: pointer;
+    }
 }
 
 .contact-us-hidden {
-    display: hidden;
+    display: none;
 }
 
 .contact-us-visible {
-    z-index: 3;
+    height: 600px;
+    width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -200px;
+    display: block;
+    z-index: 4;
+    background-color: white;
 }
