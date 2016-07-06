@@ -18,6 +18,8 @@ POSTSAPP.read_more_button = document.getElementById("read-more-button");
 
 CONTACTAPP.contact_us_button = document.getElementById('contact-us-button');
 CONTACTAPP.page_container = document.getElementById('contact-faded-container');
+CONTACTAPP.contact_form = document.getElementById('contact-form');
+CONTACTAPP.exit_contact_button = document.getElementById('exit-contact-button');
 
 // we wanrt to add all the event handlers once the page has loaded
 // TODO might consider doing that DOM built thing instead
@@ -27,25 +29,41 @@ window.onload = function () {
 
 }
 
+/** Prepares all the event handlers once the window is loaded **/
 function prepareEventHandlers() {
-    // In order to pass an argument to a function in an event listener,
-    // you have to use an anonymous function. This is because if you include 
-    // just the function with parenthesis, the function will be called
-    // right when it is written
-    // onload->click->makeRequest->instantiates PostListHttpRequest
     POSTSAPP.read_more_button.addEventListener("click", makeRequest, false);
-    CONTACTAPP.contact_us_button.addEventListener("click", showContactPage, false);
+    CONTACTAPP.contact_us_button.addEventListener("click", showContactHidePage, false);
+    // CONTACTAPP.page_container.addEventListener("click", hideContactPage, false);
+    document.getElementsByTagName('body')[0].addEventListener('click', hideContactPage, false);
+    CONTACTAPP.exit_contact_button.addEventListener('click', hideContactShowPage, false);
+}
+
+/** Hides contact page when the the user clicks away from the contact page **/
+function hideContactPage(event) {
+
+    // http://stackoverflow.com/a/3028037
+    if (!event.target.closest('#contact-form') && !event.target.closest('#contact-us-button')) {
+        if (CONTACTAPP.contact_form.classList.contains("contact-us-visible")) {
+            hideContactShowPage();
+        }
+    }
+}
+
+/** Hides the contact page and shows the main page **/
+function hideContactShowPage() {
+    CONTACTAPP.page_container.classList.remove('faded-element');
+    CONTACTAPP.contact_form.classList.remove('contact-us-visible');
+    CONTACTAPP.contact_form.classList.add('contact-us-hidden');
+
 }
 
 /** fades the web page and overlays the contact form **/
-function showContactPage() {
-    fadeEle(CONTACTAPP.page_container);
-    document.getElementById("contact-show").setAttribute("class", "contact-us-visible container-fluid");
+function showContactHidePage() {
+    CONTACTAPP.page_container.classList.add('faded-element');
+    CONTACTAPP.contact_form.classList.remove('contact-us-hidden');
+    CONTACTAPP.contact_form.classList.add('contact-us-visible');
 }
 
-function fadeEle(ele) {
-    ele.setAttribute('class', 'faded-element');
-}
 
 /** This object sets up a Post List HTTP Request.
 I decided to go with a constructor function because I want to be able to
@@ -116,8 +134,6 @@ function addNewPosts(rqst) {
     }
 
 }
-
-
 
 /* Custom error for handling when an attribute in the DOM does not exist.
 

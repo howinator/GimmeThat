@@ -23,7 +23,7 @@ class ContactForm(forms.ModelForm):
         # TODO figure out exactly what the FormHelper object is capable of
         self.helper = FormHelper()
         # set a few attributes in the HTML
-        self.helper.form_id = 'id_contactForm'
+        self.helper.form_id = 'contact-form-from-django'
         self.helper.form_method = 'post'
         # form_action will call the specified url. This accepts a URL name
         # which I preface with the namespace.

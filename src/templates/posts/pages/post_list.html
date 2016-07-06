@@ -73,17 +73,16 @@
 
 
   {# TODO: This is making a scroll bar appear on smaller screens #} 
-  <div class="contact-us-hidden container-fluid">
+   <!--<div class="contact-us-hidden container-fluid">
     <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4">
-        {# Load the contact form nice and crispy #}
+        Load the contact form nice and crispy
         {% crispy contact_form contact_form.helper %}
       </div>
       <div class="col-md-4"></div> 
     </div>
-  </div> <!-- .contact-us .container-fluid -->
-
+  </div> --> <!-- .contact-us .container-fluid --> 
   {# This is where I stopped caring about supporting IE 9- #}
   <div class="center-flex-container">
     <div id="read-more-button" class="center-flex-container round-button more-inner-button">Read More</div>
@@ -91,10 +90,14 @@
 
 </div> <!-- #contact-faded -->
 
-<div class="contact-us-hidden container-fluid" id="contact-show">
+<div class="contact-us-hidden container-fluid" id="contact-form">
+  <div class="row">
+    <div class="col-md-1 exit-contact-container"><span id="exit-contact-button" class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
+    <div class="col-md-offset-11"></div>
+  </div>
   <div class="row">
     {# <div class="col-md-4"></div> #}
-    <div class="col-md-12">
+    <div class="col-md-10 col-md-offset1">
       {# Load the contact form nice and crispy #}
       {% crispy contact_form contact_form.helper %}
     </div>
