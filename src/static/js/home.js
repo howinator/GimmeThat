@@ -126,7 +126,8 @@ function addNewPosts(rqst) {
             // so I can just append another post-page div to that
             rqst.target_container.appendChild(post_page_ele);
         } else if (rqst.httpRequest.status === 204) {
-            alert('There are no more posts!');
+            // TODO Handle by deactivating Read More button
+            // alert('There are no more posts!');
         } else {
             // TODO handle this properly - not sure how right now
             alert('There was a problem.');
